@@ -2,10 +2,10 @@
 
 ## Checklist
 
-- [ ] 1. Research precedent against live docs — Carbon (Tabs usage + data-table Filtering pattern), Material 3 (Tabs + filter chips), Polaris (IndexFilters — renders saved filter sets *as* tabs; the one real complication), Atlassian (Tabs), NN/g ("Tabs, Used Right" + faceted filtering), Spectrum (Tabs, optional sixth card). Verified quotes only; anything unverifiable is cut, not paraphrased.
-- [ ] 2. Create `records/filters-vs-tabs.html` from `records/_template.html` — full record per "The record" below (masthead, §01 table, §02 two compare pairs, §03 principles, §04 edge cases, §05 systems, §06 recommendation, §07 references)
-- [ ] 3. Wire `index.html`: append the `.regrow` as the sixth row under `#components` (after tooltip-usage, ~line 105), bump the Components homenav count 5→6 (line 64)
-- [ ] 4. Verification pass: serve locally (`python3 -m http.server`), wide + narrow viewports, badges in sync, `data-l` on every `<td>`, no `<script>`/`<style>`, relative links, British spelling
+- [x] 1. Research precedent against live docs — Carbon (Tabs usage + data-table Filtering pattern), Material 3 (Tabs + filter chips), Polaris (IndexFilters — renders saved filter sets *as* tabs; the one real complication), Atlassian (Tabs), NN/g ("Tabs, Used Right" + faceted filtering), Spectrum (Tabs, optional sixth card). Verified quotes only; anything unverifiable is cut, not paraphrased.
+- [x] 2. Create `records/filters-vs-tabs.html` from `records/_template.html` — full record per "The record" below (masthead, §01 table, §02 two compare pairs, §03 principles, §04 edge cases, §05 systems, §06 recommendation, §07 references)
+- [x] 3. Wire `index.html`: append the `.regrow` as the sixth row under `#components` (after tooltip-usage, ~line 105), bump the Components homenav count 5→6 (line 64)
+- [x] 4. Verification pass: serve locally (`python3 -m http.server`), wide + narrow viewports, badges in sync, `data-l` on every `<td>`, no `<script>`/`<style>`, relative links, British spelling
 
 ## Context
 
@@ -86,7 +86,17 @@ Append after tooltip-usage's row (~line 105, before `</section>`); bump `#compon
 ## Open items to verify during execution
 
 1. **Does VC ship a tabs component today?** The 2–7 cap and count-badge row must match the live component library (the site's own footer: "verify against the live component library before build").
+   **Unresolved.** Not verifiable from this repo — no access to the live component library. The record ships the plan's locked 2–7 cap, which matches the precedent (NN/g: "The fewer tabs, the better"). Confirm against the library before anyone builds to it; if the real component caps differently, §01 row 1 and the §06 bullet are the two places to change.
 2. **Segmented-control deferral** — record the intended future slug (suggest `view-toggles.html`) or leave unnamed.
+   **Left unnamed.** §04 and §06 defer to "a future record" without a slug — naming a file that does not exist would promise a link the index cannot honour.
+
+## Outcome
+
+Landed across three commits: the record, the index wiring, and this tick.
+
+**Precedent cut:** Material 3. Its docs render client-side and returned an empty shell to both a plain fetch and a JS-rendering scrape, so there was no live page to verify a quote against. Per checklist item 1, unverifiable is cut rather than paraphrased. §05 ships four researched cards plus a synthesis: Carbon (lead — filtering appears in its own "when not to use" list for tabs), Polaris (the complication), NN/g, Atlassian.
+
+**Verification evidence:** served on `localhost:8765` and clicked through from the index. Wide (1440px): both compare pairs side by side, `.tbl` warm/cool columns correct. Narrow (700px, measured in an iframe because the browser extension would not shrink the viewport below its minimum): `thead` `display:none`, `td` `display:block` with the `data-l` label rendering, `.compare` stages stacked, `documentElement.scrollWidth` 700 against `innerWidth` 700 — no horizontal overflow, no offending elements. Badges in sync (Draft in `.rechead` and `.regrow`); homenav Components reads 6 against 6 rows. No `<script>`, no `<style>`, no new CSS, relative links only. The single US spelling in the file is inside the verbatim Atlassian quote, which stays accurate.
 
 ## Verification
 

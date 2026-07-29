@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tabs are not filters · Design Standards</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400..700&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/tokens.css">
+<link rel="stylesheet" href="../css/base.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="topnav">
+  <div class="inner">
+    <a class="brand" href="../index.html">
+      <span class="wm">VC</span>
+      <span class="sub">Design Standards</span>
+    </a>
+    <a class="eyebrow" href="../index.html#components">Components · Navigation</a>
+  </div>
+</header>
+
+<main id="main">
+  <article id="filters-vs-tabs" class="record">
+    <div class="recordwrap">
+
+      <header class="masthead">
+        <div class="rechead"><span class="status draft"><span class="d"></span>Draft</span> <a class="eyebrow" href="../index.html#components">Components · Navigation</a></div>
+        <h1>Tabs are not filters</h1>
+        <p class="lead prose" style="margin-top:1.4rem;">
+          Tabs and filters both cut a screen down, and that surface similarity is the trap. Tabs switch between a small fixed set of structurally different peer views; filters narrow one dataset into subsets an analyst can combine, save and share. The standing error is a tab bar wearing a column's values — one tab per status, with an "All" tab as the confession.
+        </p>
+
+        <div class="context">
+          <span class="k">Our context</span>
+          <p>Analysts and care managers work dense registries and worklists on large monitors. What decides it: our data is <strong>many-valued and multi-dimensional — status, programme, payer, risk tier — and the subsets analysts cut get saved and shared as views</strong>. Filters are the default for narrowing; tabs are reserved for views that genuinely differ in structure.</p>
+        </div>
+
+        <div class="rulecard">
+          <span class="k">The rule (provisional)</span>
+          <p>Match the control to what changes.</p>
+          <ul class="clean">
+            <li><strong>Tabs</strong> — a small fixed set of 2–7 mutually exclusive peer views that differ <strong>structurally</strong>: own layout, columns, actions. One click swaps the screen, and the position is transient.</li>
+            <li><strong>Filters</strong> — narrowing <strong>one dataset</strong> by its columns: many-valued, combinable across dimensions (status AND programme AND payer), saveable as a named view. Same table, fewer rows.</li>
+          </ul>
+          <p>The deciding question: does switching change <strong>what the screen is</strong>, or only <strong>which rows it shows</strong>? Structure → tabs. Rows → filters. The tell is that options mirroring a column's values are filter values, and an "All" tab is the confession.</p>
+        </div>
+      </header>
+
+      <!-- 01 QUICK REFERENCE -->
+      <section>
+        <span class="secnum">01 / Quick reference</span>
+        <h2>Decide by what changes on click</h2>
+        <p class="prose">
+          <strong>Seven dimensions separate the two, and the first three settle most cases.</strong> Where a control sits on these is not a matter of taste — it follows from the data behind it.
+        </p>
+        <table class="tbl">
+          <thead>
+            <tr>
+              <th></th>
+              <th class="colh"><span class="th-h">Tabs</span></th>
+              <th class="colv"><span class="th-v">Filters</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Number of options</th><td data-l="Tabs">2–7, fixed at design time.</td><td data-l="Filters">Unbounded; the values come from the data.</td></tr>
+            <tr><th scope="row">Combinability</th><td data-l="Tabs">One at a time, mutually exclusive.</td><td data-l="Filters">Compose across dimensions.</td></tr>
+            <tr><th scope="row">Structural difference</th><td data-l="Tabs">Each view has its own columns, layout and actions.</td><td data-l="Filters">Same table, fewer rows.</td></tr>
+            <tr><th scope="row">What a click changes</th><td data-l="Tabs">Swaps the screen.</td><td data-l="Filters">Narrows rows in place.</td></tr>
+            <tr><th scope="row">State</th><td data-l="Tabs">Transient position, not worth saving.</td><td data-l="Filters">An artifact — saved views, shared URLs.</td></tr>
+            <tr><th scope="row">Counts</th><td data-l="Tabs">A badge per tab.</td><td data-l="Filters">A result count ("1,204 of 18,500 members") and facet counts.</td></tr>
+            <tr><th scope="row">Best fit here</th><td data-l="Tabs">Facets of one record: a measure's Definition, Population, Results.</td><td data-l="Filters">Registries, worklists, member and cohort tables.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- 02 IN PRACTICE -->
+      <section>
+        <span class="secnum">02 / The two in practice</span>
+        <h2>The error runs both directions</h2>
+        <p class="prose">
+          <strong>Both mistakes come from reading the control instead of the data.</strong> The common one promotes a column into chrome; the rarer one flattens three different screens into one list to make a filter fit.
+        </p>
+
+        <div class="compare">
+          <div class="stage avoid">
+            <span class="judge"><span class="d"></span>Avoid</span>
+            <div class="appframe">
+              <div class="appbar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="t">Member registry</span></div>
+              <div class="pagehead" style="padding:0.8rem 1.1rem;">
+                <div><div class="crumb">Registries / Members</div><h4 style="font-size:1.02rem;">Member registry</h4></div>
+              </div>
+              <div class="pagecanvas" style="padding:0.9rem 1.1rem 0;">
+                <div class="btnrow" style="margin-top:0; flex-wrap:wrap;">
+                  <span class="btn p">Active</span>
+                  <span class="btn g">Inactive</span>
+                  <span class="btn g">Pending</span>
+                  <span class="btn g">Expired</span>
+                  <span class="btn g">All</span>
+                </div>
+              </div>
+              <div class="faux-list">
+                <div class="listrow"><span class="nm">Member 4471</span><span class="meta">MSSP</span><span class="pill">Active</span></div>
+                <div class="listrow"><span class="nm">Member 4472</span><span class="meta">MSSP</span><span class="pill">Active</span></div>
+                <div class="listrow"><span class="nm">Member 4473</span><span class="meta">MA</span><span class="pill">Active</span></div>
+              </div>
+            </div>
+            <p class="note"><strong>One tab per status value — a column promoted to chrome.</strong> There is no way to combine status with programme or payer, the strip grows every time configuration adds a status, and the "All" tab is the confession that these were always one list.</p>
+          </div>
+          <div class="stage use">
+            <span class="judge"><span class="d"></span>Use</span>
+            <div class="appframe">
+              <div class="appbar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="t">Member registry</span></div>
+              <div class="pagehead" style="padding:0.8rem 1.1rem;">
+                <div><div class="crumb">Registries / Members</div><h4 style="font-size:1.02rem;">Member registry</h4></div>
+                <div class="acts"><span class="btn g">Save view</span></div>
+              </div>
+              <div class="pagecanvas" style="padding:0.9rem 1.1rem 0;">
+                <div class="btnrow" style="margin-top:0; flex-wrap:wrap;">
+                  <span class="btn g">Status: Active ×</span>
+                  <span class="btn g">Programme: MSSP ×</span>
+                  <span class="btn g">+ Filter</span>
+                </div>
+                <p class="sub" style="margin:0.85rem 0 0;">1,204 of 18,500 members</p>
+              </div>
+              <div class="faux-list">
+                <div class="listrow"><span class="nm">Member 4471</span><span class="meta">MSSP</span><span class="pill">Active</span></div>
+                <div class="listrow"><span class="nm">Member 4472</span><span class="meta">MSSP</span><span class="pill">Active</span></div>
+                <div class="listrow"><span class="nm">Member 4486</span><span class="meta">MSSP</span><span class="pill">Active</span></div>
+              </div>
+            </div>
+            <p class="note"><strong>One table, one filter bar.</strong> Status combines with programme, payer and risk tier, the result count says what the narrowing cost, and the whole set saves as a named view an analyst can share.</p>
+          </div>
+        </div>
+
+        <div class="compare" style="margin-top:2rem;">
+          <div class="stage avoid">
+            <span class="judge"><span class="d"></span>Avoid</span>
+            <div class="appframe">
+              <div class="appbar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="t">Quality measure</span></div>
+              <div class="pagehead" style="padding:0.8rem 1.1rem;">
+                <div><div class="crumb">Library / Quality measures</div><h4 style="font-size:1.02rem;">30-day readmission</h4></div>
+              </div>
+              <div class="pagecanvas" style="padding:0.9rem 1.1rem 0;">
+                <div class="btnrow" style="margin-top:0;">
+                  <span class="btn g">Section: Results ×</span>
+                </div>
+              </div>
+              <div class="faux-list">
+                <div class="listrow"><span class="nm">Denominator rule</span><span class="meta">—</span><span class="pill">n/a</span></div>
+                <div class="listrow"><span class="nm">Attributed members</span><span class="meta">18,500</span><span class="pill">n/a</span></div>
+                <div class="listrow"><span class="nm">Rate, FY26 Q2</span><span class="meta">—</span><span class="pill">14.2%</span></div>
+              </div>
+            </div>
+            <p class="note"><strong>A "Section" filter pretending three different screens are one dataset.</strong> The columns only fit one of them, so half the cells read "—" — the shared table is a lowest common denominator nobody asked for.</p>
+          </div>
+          <div class="stage use">
+            <span class="judge"><span class="d"></span>Use</span>
+            <div class="appframe">
+              <div class="appbar"><span class="d"></span><span class="d"></span><span class="d"></span><span class="t">Quality measure</span></div>
+              <div class="pagehead" style="padding:0.8rem 1.1rem;">
+                <div><div class="crumb">Library / Quality measures</div><h4 style="font-size:1.02rem;">30-day readmission</h4></div>
+                <div class="acts"><span class="btn p">Publish</span></div>
+              </div>
+              <div class="pagecanvas" style="padding:0.9rem 1.1rem 0;">
+                <div class="btnrow" style="margin-top:0;">
+                  <span class="btn g">Definition</span>
+                  <span class="btn g">Population</span>
+                  <span class="btn p">Results</span>
+                </div>
+              </div>
+              <div class="pagecanvas" style="padding-top:1rem;">
+                <h4>Results</h4>
+                <p class="sub">Performance for the current measurement period.</p>
+                <div class="fieldgrid">
+                  <div><div class="fieldlabel">Measurement period</div><div class="field s"></div></div>
+                  <div><div class="fieldlabel">Benchmark</div><div class="field s"></div></div>
+                </div>
+              </div>
+            </div>
+            <p class="note"><strong>Three peer views of one measure, each with its own layout and actions.</strong> Definition edits logic, Population shows the cohort, Results reports performance — a structural switch is exactly what tabs are for.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 03 REASONING -->
+      <section>
+        <span class="secnum">03 / The reasoning</span>
+        <h2>Five forces behind the rule</h2>
+        <p class="prose">
+          The rule is not a style preference. Five pressures decide it, and every one of them points the same way for data as multi-valued as ours.
+        </p>
+
+        <div class="principles">
+          <div class="principle">
+            <div class="n">1</div>
+            <h3>Filter values come from the data</h3>
+            <p><strong>A tab set is fixed at design time.</strong> Status, programme and payer values grow with configuration, and chrome that mirrors a column cannot keep up.</p>
+          </div>
+          <div class="principle">
+            <div class="n">2</div>
+            <h3>Narrowing is multi-dimensional</h3>
+            <p><strong>Registry questions are conjunctions</strong> — status AND programme AND risk tier. Tabs offer one dimension, exclusively.</p>
+          </div>
+          <div class="principle">
+            <div class="n">3</div>
+            <h3>Filter state is an artifact; tab state is position</h3>
+            <p><strong>Analysts save, share and revisit a filter set as a view.</strong> Nobody saves which tab they were on. If the selection deserves a name, it is a filter.</p>
+          </div>
+          <div class="principle">
+            <div class="n">4</div>
+            <h3>Tabs promise a structural change</h3>
+            <p><strong>A tab click says the screen will be different.</strong> If the same table comes back with fewer rows, the promise is broken.</p>
+          </div>
+          <div class="principle">
+            <div class="n">5</div>
+            <h3>Two systems must not fight</h3>
+            <p><strong>Tabs own structure, filters own rows.</strong> A tab switch never silently discards filter state, and a shared filter bar carries only filters that apply to every tab.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 04 EDGE CASES -->
+      <section>
+        <span class="secnum">04 / Edge cases and anti-patterns</span>
+        <h2>Where to draw the line in review</h2>
+        <p class="prose">
+          <strong>Most of this rule's work is policing the boundary.</strong> A few controls sit close enough to a tab bar to be mistaken for one, and they each resolve cleanly against the deciding question.
+        </p>
+
+        <div class="prose mt-lg">
+          <p><strong>Sanctioned</strong></p>
+          <ul class="clean cool">
+            <li><strong>One coarse scope strip.</strong> At most one, holding 2–3 mutually exclusive populations — "My panel" versus "All members" — placed above the filter bar. A scope switch never silently clears filter state. Anything mirroring a finer column is a filter, not a scope.</li>
+            <li><strong>A saved-view strip is a filter feature, not a tab set.</strong> It holds named filter states, grows at runtime, and each entry opens the same table with the same columns. Shopify's IndexFilters does exactly this and still calls them tabs; the behaviour is what governs, not the label.</li>
+            <li><strong>AI filters produce ordinary filter chips</strong> — visible, editable and removable like any hand-built filter, and saveable as the same kind of view.</li>
+            <li><strong>A presentation switch is neither a tab set nor a filter</strong>, and it must never reset filters. Toggling the same rows between a table and a chart is a view toggle; full guidance is deferred to a future record.</li>
+          </ul>
+
+          <p><strong>Reject in review</strong></p>
+          <ul class="clean anti">
+            <li>A tab per column value — one tab per status, per programme, per payer. That is a filter dimension wearing chrome.</li>
+            <li>An "All" tab. It admits the set was one list the whole time.</li>
+            <li>A "Section" filter spanning structurally different views, forcing one table to serve columns that only fit one of them.</li>
+            <li>A tab switch that silently clears applied filters. Carry the filter state across, or say plainly that it does not apply to this tab.</li>
+            <li>Ordered steps as tabs. <strong>Ordered steps are a stepper, not tabs</strong> — see <a href="stepper-orientation.html">stepper orientation</a>, which draws the same boundary from the other side.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 05 PRECEDENT -->
+      <section>
+        <span class="secnum">05 / What the major design systems say</span>
+        <h2>The boundary is convention, not a house opinion</h2>
+        <p class="prose">
+          <strong>Every system that documents both controls draws the same line, and one draws it explicitly.</strong> Carbon — IBM's system for data-heavy products, closest to ours — names filtering as a reason <em>not</em> to reach for tabs. Links are in the references.
+        </p>
+
+        <div class="systems">
+          <div class="syscard lead">
+            <div class="src">IBM · Carbon — closest to our world</div>
+            <h3>Filtering is listed under "when not to use" tabs</h3>
+            <p>Carbon defines tabs as grouping "different but related content, allowing users to navigate views without leaving the page", then puts filtering in its when-not-to-use list: "When toggling between different formats of the same content or filtering the same content, use content switcher instead." Its separate Filtering pattern carries the other half — filtering "allows a user to add or remove data items from a displayed data set by turning on and off certain predefined attributes", and "multiple filter categories may be applied to the same data set". We take the boundary whole. Where Carbon routes format toggles to a content switcher, our runtime, many-valued narrowing goes to filters, and a switcher is reserved for presentation.</p>
+            <span class="verdict tag v"><span class="dot"></span>tabs navigate views · filters narrow a dataset</span>
+          </div>
+
+          <div class="syscard">
+            <div class="src">Shopify · Polaris — the complication</div>
+            <h3>Saved filter sets rendered as tabs</h3>
+            <p>Polaris runs against the grain on purpose. IndexFilters lets merchants "filter, search, and sort their index table data and create unique saved views from the results", and those views are tabs: "Each tab represents a subset of the list that has been sorted, filtered, and or queried and saved with a unique name." Read the behaviour, not the label — every one of those tabs opens the same table with the same columns, and the set grows at runtime. That is a saved-view strip wearing tab clothes, which is exactly what we sanction in §04; it is not licence for a tab per column value.</p>
+            <span class="verdict tag n"><span class="dot"></span>views are named filter states</span>
+          </div>
+
+          <div class="syscard">
+            <div class="src">Nielsen Norman Group</div>
+            <h3>One panel at a time, and the fewer the better</h3>
+            <p>NN/g's definition is exclusivity itself: tabs "allow users to selectively view a single panel of content from among a list of options", suited to content with clear groupings. It rules out the comparison case — tabs fit "when users don't need to simultaneously see information presented under different tabs", otherwise "users must repeatedly switch between tabs to compare or reference information". On count it is blunt: "The fewer tabs, the better." Analysts comparing cohorts across statuses are precisely the users this excludes.</p>
+            <span class="verdict tag h"><span class="dot"></span>no cross-tab comparison · few tabs</span>
+          </div>
+
+          <div class="syscard">
+            <div class="src">Atlassian</div>
+            <h3>Grouping similar content on one page</h3>
+            <p>Atlassian keeps it to a line: "Tabs are used to organize content by grouping similar information on the same page." Organising content, not subsetting rows — the framing matches everyone else's even without a stated filtering exclusion.</p>
+            <span class="verdict tag n"><span class="dot"></span>organise content, not rows</span>
+          </div>
+
+          <div class="syscard">
+            <div class="src">Synthesis</div>
+            <h3>The pattern for tools like ours</h3>
+            <p>For a desktop, analyst-facing product over many-valued data, the field points one way: tabs carry a handful of structurally different peer views, filters carry every runtime subset of a dataset, and named views are a filter feature. Polaris is the only system that blurs the line, and it does so by making tabs behave like saved filters, not the reverse.</p>
+            <span class="verdict tag v"><span class="dot"></span>filters default · tabs for structure</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 06 RECO -->
+      <section>
+        <span class="secnum">06 / Recommendation for VC</span>
+        <h2>Filters are the default for narrowing</h2>
+        <div class="reco">
+          <h3>The house rule</h3>
+          <ul class="clean cool">
+            <li><strong>Filters are the default</strong> for registries, worklists, member and cohort tables — anywhere the question is which rows, not which screen. Show applied filters as chips, a result count, and the ability to save the set as a named view.</li>
+            <li><strong>Tabs are reserved for 2–7 structurally different facets of one record</strong>: a measure's Definition, Population and Results, each with its own columns, layout and actions.</li>
+            <li><strong>No tab per column value, ever.</strong> If the options come from a column, they are filter values; if two tabs would render the same columns, they are one view with a filter.</li>
+            <li><strong>One coarse scope strip is sanctioned</strong> — 2–3 mutually exclusive populations, above the filter bar, and it never silently clears filter state.</li>
+            <li><strong>AI filters produce ordinary filter chips</strong>, visible and editable like any hand-built filter.</li>
+            <li><strong>Presentation toggles are deferred.</strong> Switching the same rows between a table and a chart is neither control, and it must never reset filters.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- REFS -->
+      <section>
+        <span class="secnum">07 / References</span>
+        <h2>Sources</h2>
+        <ul class="clean refs prose">
+          <li><a href="https://carbondesignsystem.com/components/tabs/usage/">IBM Carbon — Tabs usage</a> (tabs group different but related content; "when not to use" lists filtering the same content, pointing to the content switcher instead).</li>
+          <li><a href="https://carbondesignsystem.com/patterns/filtering/">IBM Carbon — Filtering pattern</a> (filtering adds or removes items from a displayed data set by predefined attributes; multiple filter categories may be applied to the same data set).</li>
+          <li><a href="https://polaris-react.shopify.com/components/selection-and-input/index-filters">Shopify Polaris — IndexFilters</a> (filter, search and sort index table data into unique saved views; each tab is a saved, named subset of the same list).</li>
+          <li><a href="https://www.nngroup.com/articles/tabs-used-right/">Nielsen Norman Group — Tabs, Used Right</a> (a single panel from among a list of options; unsuited when users must compare across tabs; the fewer tabs, the better).</li>
+          <li><a href="https://atlassian.design/components/tabs/usage">Atlassian — Tabs</a> (organise content by grouping similar information on the same page).</li>
+        </ul>
+      </section>
+
+    </div>
+  </article>
+
+  <footer class="globalfoot">
+    <p class="meta">VC · UX decision records · Internal · Verify against the live component library before build.</p>
+  </footer>
+</main>
+
+</body>
+</html>
