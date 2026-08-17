@@ -32,4 +32,35 @@ if [ -n "$matches" ]; then
   exit 1
 fi
 
+# --- Maintainability review -------------------------------------------------
+# Runs the maintainability-review skill (diff mode) over staged HTML/CSS via
+# the `claude` CLI. Best-effort: skips cleanly if `claude` isn't installed,
+# or if nothing HTML/CSS is staged, so it never blocks contributors who don't
+# have it. Genuine emergency / false positive: git commit --no-verify
+
+review_diff=$(git diff --cached --diff-filter=ACM -- '*.html' '*.css')
+
+if [ -n "$review_diff" ] && command -v claude >/dev/null 2>&1; then
+  echo "Running maintainability review on staged HTML/CSS..." >&2
+
+  review_prompt="Use the maintainability-review skill in diff mode on the staged changes below, from this repo's static HTML/CSS design-records site (see AGENTS.md: no JS, no build step, token-driven CSS, shared record shell). Flag only real, concrete maintainability problems — DRY violations, drift from the repo's existing patterns, unclear structure. If there are none, reply with exactly: OK
+Otherwise list each problem as a short plain line.
+
+Staged diff:
+$review_diff"
+
+  review_output=$(claude -p "$review_prompt" --allowedTools "" 2>&1)
+  review_status=$?
+
+  if [ $review_status -eq 0 ] && ! echo "$review_output" | grep -qx "OK"; then
+    echo "" >&2
+    echo "✖ Maintainability review flagged issues in the staged changes:" >&2
+    echo "" >&2
+    echo "$review_output" | sed 's/^/    /' >&2
+    echo "" >&2
+    echo "  Fix them and re-stage, or override: git commit --no-verify" >&2
+    exit 1
+  fi
+fi
+
 exit 0
