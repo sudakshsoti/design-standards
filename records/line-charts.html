@@ -153,7 +153,7 @@
         <div class="viz-board">
           <div class="bbar"><i></i><i></i><i></i><em>Six measures · one frame</em></div>
           <div class="chart viz-plot">
-            <svg viewBox="0 0 300 150" role="img" aria-label="Six trend lines overplotted in one frame, crossing and indistinct, readable only through a legend.">
+            <svg viewBox="0 0 300 150" role="img" aria-label="Six trend lines overplotted in one frame, crossing and indistinct, readable only through a legend, with the sixth reusing the first line's hue.">
               <line class="viz-axis" x1="20" y1="12" x2="20" y2="120"/>
               <line class="viz-axis" x1="20" y1="120" x2="294" y2="120"/>
               <polyline class="viz-line thin viz-c1" points="20,86 74,72 128,90 182,60 236,74 290,52"/>
@@ -161,7 +161,7 @@
               <polyline class="viz-line thin viz-c3" points="20,100 74,92 128,74 182,96 236,82 290,66"/>
               <polyline class="viz-line thin viz-c4" points="20,44 74,58 128,50 182,42 236,56 290,40"/>
               <polyline class="viz-line thin viz-c5" points="20,110 74,96 128,104 182,88 236,100 290,84"/>
-              <polyline class="viz-line thin viz-c6" points="20,72 74,64 128,80 182,70 236,48 290,60"/>
+              <polyline class="viz-line thin viz-c1" points="20,72 74,64 128,80 182,70 236,48 290,60"/>
             </svg>
           </div>
           <div class="viz-legend">
@@ -170,10 +170,10 @@
             <span class="k viz-c3"><i class="ln"></i>Depression</span>
             <span class="k viz-c4"><i class="ln"></i>Colorectal</span>
             <span class="k viz-c5"><i class="ln"></i>Breast</span>
-            <span class="k viz-c6"><i class="ln"></i>Flu</span>
+            <span class="k viz-c1"><i class="ln"></i>Flu</span>
           </div>
         </div>
-        <p class="note"><strong>Six lines in one frame is a tangle, not a trend.</strong> The lines cross, the colours stop separating, and the reader is left tracing a legend instead of reading a shape. No single measure's direction is legible.</p>
+        <p class="note"><strong>Six lines in one frame is a tangle, not a trend.</strong> The lines cross, the colours stop separating, and the reader is left tracing a legend instead of reading a shape. No single measure's direction is legible. The sixth line has to borrow Diabetes' blue, because the categorical set holds five.</p>
       </div>
       <div class="stage use">
         <span class="judge"><span class="d"></span>Use</span>

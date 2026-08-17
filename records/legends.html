@@ -31,7 +31,7 @@
         <div class="rechead"><span class="status draft"><span class="d"></span>Draft</span> <a class="eyebrow" href="../index.html#dv-presentation">Data visualization · Presentation and scale</a></div>
         <h1>A legend is a key,<br>not a control</h1>
         <p class="lead prose" style="margin-top:1.5rem;">
-          Most charts do not need a legend, so label the marks instead. When marks genuinely overlap, the key goes below the plot at axis-label size, colour in the swatch, label in plain ink, ordered the way the chart is ordered. It never takes a click. A reader who needs fewer series on screen gets small multiples or the filter bar.
+          Most charts do not need a legend, so label the marks instead. When marks genuinely overlap, the key goes below the plot at axis-label size, ordered the way the chart is ordered, and never truncated. It never takes a click. A reader who needs fewer series on screen gets small multiples or the filter bar.
         </p>
 
         <div class="context">
@@ -46,9 +46,10 @@
           <p>Label the marks first; reach for a legend only when they cannot carry their own names.</p>
           <ul class="clean">
             <li><strong>A legend only when marks overlap or interleave</strong>: 3+ stacked segments, 2+ lines, a continuous colour ramp. Everything else gets a direct label.</li>
-            <li><strong>Below the plot, left-aligned to its left edge.</strong> Never floated right, never a right-hand rail. It wraps to a second row before it compresses.</li>
-            <li><strong>Axis-label tier type, colour in the swatch.</strong> Same size as the chart's axis labels. The label stays neutral ink and the swatch carries the mark colour.</li>
+            <li><strong>Below the plot, left-aligned to its left edge.</strong> Never floated right, never a right-hand rail. It wraps to a second row, then stacks into one column, before it ever compresses a name.</li>
+            <li><strong>Axis-label tier type.</strong> The same size as the chart's axis labels, and never a step below it.</li>
             <li><strong>Order follows the chart, never the alphabet.</strong> Stacking order, line value at the right-hand edge, or bar order.</li>
+            <li><strong>Five keys, then group the tail.</strong> The 6th key is "Other" on a neutral swatch, never a 6th hue.</li>
             <li><strong>Never clickable.</strong> A key that toggles or isolates a series is a control wearing a label. When a reader needs fewer series on screen, small multiples or the filter bar does that job.</li>
             <li><strong>It never changes what the chart shows.</strong> Narrowing the data belongs to the filter bar and to saved views. See <a href="filters-vs-tabs.html">tabs are not filters</a>.</li>
           </ul>
@@ -108,9 +109,9 @@
               <td data-l="Why">No legend at tile scale; a tile that needs a key needs a panel.</td>
             </tr>
             <tr>
-              <th scope="row">Past 6 categorical series</th>
-              <td data-l="What carries the names">Group the tail into "Other", or switch to position.</td>
-              <td data-l="Why">Past 6 categories colour stops separating.</td>
+              <th scope="row">Past 5 categorical series</th>
+              <td data-l="What carries the names">Group the tail into "Other" on a neutral swatch, or switch to position.</td>
+              <td data-l="Why">The categorical set holds five separable hues; a 6th has none left.</td>
             </tr>
           </tbody>
         </table>
@@ -121,7 +122,7 @@
         <span class="secnum">02 / The spec</span>
         <h2>How to draw the key</h2>
         <p class="prose">
-          <strong>Seven properties are fixed.</strong> The demos on this page are drawn at reduced schematic scale, so the 12px floor below applies to product charts rather than to these illustrations.
+          <strong>Eight properties are fixed.</strong> The demos on this page are drawn at reduced schematic scale, so the 12px floor and the pixel spacing below apply to product charts rather than to these illustrations.
         </p>
 
         <table class="tbl tri">
@@ -135,18 +136,13 @@
           <tbody>
             <tr>
               <th scope="row">Placement</th>
-              <td data-l="The rule">Below the plot, left-aligned to the plot's left edge, wrapping to a second row rather than compressing. Cap at 2 rows; past that, group the tail.</td>
-              <td data-l="Why">A fixed spot the eye returns to without hunting; a right rail or a floated key competes with the plot for the same scan path.</td>
+              <td data-l="The rule">Below the plot, left-aligned to the plot's left edge, not the card's padding box. 12px between the plot's lowest label row and the first key, 16px between keys, 6px between wrapped rows, 4px between a swatch and its label. No border, no fill, no card of its own.</td>
+              <td data-l="Why">The plot's left edge is where the title and the axis labels already start, so the key joins a line the eye is using instead of adding one. A floated key moves every time the card resizes, so its position is never learnable, and a right-hand rail spends plot width, which is the scarce resource on a dense dashboard.</td>
             </tr>
             <tr>
               <th scope="row">Type size</th>
               <td data-l="The rule">The axis-label tier: same family and size as the chart's axis labels, sentence case, no uppercase tracking, never below 12px in product.</td>
               <td data-l="Why">Legend labels are text, so they hold 4.5:1 against the plot background.</td>
-            </tr>
-            <tr>
-              <th scope="row">Label colour</th>
-              <td data-l="The rule">Neutral ink (<code>var(--ink-2)</code>), colour lives in the swatch, never in the text.</td>
-              <td data-l="Why">Coloured label text duplicates the swatch and loses contrast at small sizes.</td>
             </tr>
             <tr>
               <th scope="row">Swatch shape</th>
@@ -159,14 +155,24 @@
               <td data-l="Why">A key whose order contradicts the mark order is a defect.</td>
             </tr>
             <tr>
-              <th scope="row">6-key cap</th>
-              <td data-l="The rule">Cap 6 categorical keys. Past 6, group the tail into "Other" or switch to position.</td>
-              <td data-l="Why">Defers to <a href="colour-for-data.html">colour for data</a>.</td>
+              <th scope="row">5-key cap</th>
+              <td data-l="The rule">Cap 5 categorical keys. Past 5, group the tail into "Other" on a neutral swatch, or switch to position.</td>
+              <td data-l="Why">Defers to <a href="colour-for-data.html">colour for data</a>: the categorical set holds five separable hues, so a 6th key would have to reuse one.</td>
             </tr>
             <tr>
               <th scope="row">Ramp keys</th>
               <td data-l="The rule">Labelled at both ends, low value first, and never clickable.</td>
               <td data-l="Why">The reader scans low to high the same way the axis does, so end labels have to match that order.</td>
+            </tr>
+            <tr>
+              <th scope="row">Long labels</th>
+              <td data-l="The rule">Never truncate a key. Wrap to a second row, then stack the key into one column below the plot. A name that still does not fit means the chart has too many series.</td>
+              <td data-l="Why">Series names come from the data and are often long. Two names that share a prefix become the same word once they are cut, and a key that lies about the name is worse than a taller card.</td>
+            </tr>
+            <tr>
+              <th scope="row">Filtered categories</th>
+              <td data-l="The rule">A category the global filters remove takes its key with it. The hue stays pinned to the category, never to its position in the list.</td>
+              <td data-l="Why">A key for a series that is not drawn is a false claim, and a hue that shifts when a filter changes destroys recognition across every chart on the dashboard.</td>
             </tr>
           </tbody>
         </table>
@@ -185,7 +191,7 @@
                   <polyline class="viz-line thin viz-c3" points="20,90 74,75 128,60 182,50 236,45 290,40"/>
                   <polyline class="viz-line thin viz-c4" points="20,100 74,80 128,60 182,45 236,30 290,20"/>
                 </svg>
-                <div class="viz-legend anti-right anti-hue anti-small">
+                <div class="viz-legend anti-right anti-small">
                   <span class="k viz-c1"><i></i>Asthma</span>
                   <span class="k viz-c2"><i></i>Depression</span>
                   <span class="k viz-c3"><i></i>Diabetes</span>
@@ -193,7 +199,7 @@
                 </div>
               </div>
             </div>
-            <p class="note"><strong>Colour sits in the text, the order is alphabetical, and the swatch is a square on a line series.</strong> Hypertension ends highest on the chart but reads last in the key; the reader has to hunt for which coloured word matches which line, and the square swatch doesn't even hint that the mark is a line.</p>
+            <p class="note"><strong>The key is floated right, shrunk below the axis tier, and sorted alphabetically.</strong> Hypertension ends highest on the chart but reads last in the key, and the square swatch does not even hint that the mark is a line.</p>
           </div>
           <div class="stage use">
             <span class="judge"><span class="d"></span>Use</span>
@@ -216,7 +222,7 @@
                 </div>
               </div>
             </div>
-            <p class="note"><strong>Neutral labels, line-rule swatches, order matching the right-hand edge.</strong> Hypertension leads the key because it leads the chart; the reader never leaves the plot to decode it.</p>
+            <p class="note"><strong>Line-rule swatches, order matching the right-hand edge.</strong> Hypertension leads the key because it leads the chart; the reader never leaves the plot to decode it.</p>
           </div>
         </div>
 
@@ -231,9 +237,117 @@
         <p class="note"><strong>A ramp key is labelled at both ends.</strong> The scale is continuous, so there are no discrete members to name.</p>
       </section>
 
-      <!-- 03 THE INTERACTIVITY RULE -->
+      <!-- 03 LONG NAMES AND FILTERED SERIES -->
       <section>
-        <span class="secnum">03 / The interactivity rule</span>
+        <span class="secnum">03 / Long names and filtered series</span>
+        <h2>The key never truncates, and never outlives its series</h2>
+        <p class="prose">
+          <strong>Two things the spec has to survive: names longer than the chart is wide, and a global filter that removes a category underneath it.</strong> Neither is an edge case in VC; measure and contract names run long, and every dashboard opens with filters already applied.
+        </p>
+
+        <div class="compare">
+          <div class="stage avoid">
+            <span class="judge"><span class="d"></span>Avoid</span>
+            <div class="viz-board">
+              <div class="bbar"><i></i><i></i><i></i><em>Members by plan · truncated key</em></div>
+              <div class="chart viz-plot">
+                <svg viewBox="0 0 300 100" role="img" aria-label="Three trend lines with a legend key truncated so two plan names both read Medicare Advan, no longer distinguishable.">
+                  <line class="viz-axis" x1="20" y1="10" x2="20" y2="90"/>
+                  <line class="viz-axis" x1="20" y1="90" x2="290" y2="90"/>
+                  <polyline class="viz-line thin viz-c1" points="20,60 74,58 128,62 182,56 236,58 290,55"/>
+                  <polyline class="viz-line thin viz-c2" points="20,40 74,50 128,58 182,68 236,75 290,80"/>
+                  <polyline class="viz-line thin viz-c3" points="20,80 74,65 128,50 182,40 236,35 290,30"/>
+                </svg>
+                <div class="viz-legend anti-squeeze">
+                  <span class="k viz-c1"><i class="ln"></i><span>Medicare Advantage HMO</span></span>
+                  <span class="k viz-c2"><i class="ln"></i><span>Medicare Advantage PPO</span></span>
+                  <span class="k viz-c3"><i class="ln"></i><span>Commercial Fully Insured</span></span>
+                </div>
+              </div>
+            </div>
+            <p class="note"><strong>Two keys now read the same.</strong> "Medicare Advantage HMO" and "Medicare Advantage PPO" both cut to "Medicare Advan…", so the key can no longer say which line is which. Nothing about the chart is wrong; the key threw the answer away to save a row.</p>
+          </div>
+          <div class="stage use">
+            <span class="judge"><span class="d"></span>Use</span>
+            <div class="viz-board">
+              <div class="bbar"><i></i><i></i><i></i><em>Members by plan</em></div>
+              <div class="chart viz-plot">
+                <svg viewBox="0 0 300 100" role="img" aria-label="The same three trend lines with a stacked legend column showing each plan name in full.">
+                  <line class="viz-axis" x1="20" y1="10" x2="20" y2="90"/>
+                  <line class="viz-axis" x1="20" y1="90" x2="290" y2="90"/>
+                  <polyline class="viz-line thin viz-c1" points="20,60 74,58 128,62 182,56 236,58 290,55"/>
+                  <polyline class="viz-line thin viz-c2" points="20,40 74,50 128,58 182,68 236,75 290,80"/>
+                  <polyline class="viz-line thin viz-c3" points="20,80 74,65 128,50 182,40 236,35 290,30"/>
+                </svg>
+                <div class="viz-legend stack">
+                  <span class="k viz-c1"><i class="ln"></i><span>Medicare Advantage HMO</span></span>
+                  <span class="k viz-c2"><i class="ln"></i><span>Medicare Advantage PPO</span></span>
+                  <span class="k viz-c3"><i class="ln"></i><span>Commercial Fully Insured</span></span>
+                </div>
+              </div>
+            </div>
+            <p class="note"><strong>Stacked into one column, every name survives.</strong> The key wraps to a second row first; when names run this long it stacks, and the card grows by two rows instead of losing the difference between two plans.</p>
+          </div>
+        </div>
+
+        <div class="compare">
+          <div class="stage avoid">
+            <span class="judge"><span class="d"></span>Avoid</span>
+            <div class="viz-board">
+              <div class="bbar"><i></i><i></i><i></i><em>Members by contract type · Medicaid filtered out</em></div>
+              <div class="chart viz-plot">
+                <svg viewBox="0 0 300 100" role="img" aria-label="Two-segment stacked bars with hues assigned by position; the surviving segments have shifted colour and a Medicaid key still names a series that is not drawn.">
+                  <line class="viz-axis" x1="20" y1="10" x2="20" y2="90"/>
+                  <line class="viz-axis" x1="20" y1="90" x2="290" y2="90"/>
+                  <g class="viz-bars">
+                    <rect class="viz-c2" x="50" y="45" width="40" height="45"/>
+                    <rect class="viz-c3" x="50" y="25" width="40" height="20"/>
+                    <rect class="viz-c2" x="150" y="55" width="40" height="35"/>
+                    <rect class="viz-c3" x="150" y="35" width="40" height="20"/>
+                    <rect class="viz-c2" x="250" y="60" width="40" height="30"/>
+                    <rect class="viz-c3" x="250" y="42" width="40" height="18"/>
+                  </g>
+                </svg>
+                <div class="viz-legend">
+                  <span class="k viz-c2"><i></i>Commercial</span>
+                  <span class="k viz-c3"><i></i>Medicare</span>
+                  <span class="k viz-c1"><i></i>Medicaid</span>
+                </div>
+              </div>
+            </div>
+            <p class="note"><strong>The filter took Medicaid out, and the two survivors changed colour.</strong> Commercial was blue on every other chart in the dashboard and is vermilion here, because the hues were handed out by position instead of pinned to the category. The Medicaid key is still sitting there naming a series that is not drawn.</p>
+          </div>
+          <div class="stage use">
+            <span class="judge"><span class="d"></span>Use</span>
+            <div class="viz-board">
+              <div class="bbar"><i></i><i></i><i></i><em>Members by contract type</em></div>
+              <div class="chart viz-plot">
+                <svg viewBox="0 0 300 100" role="img" aria-label="The same two-segment stacked bars with hues pinned to category; Commercial stays blue and only two keys are drawn.">
+                  <line class="viz-axis" x1="20" y1="10" x2="20" y2="90"/>
+                  <line class="viz-axis" x1="20" y1="90" x2="290" y2="90"/>
+                  <g class="viz-bars">
+                    <rect class="viz-c1" x="50" y="45" width="40" height="45"/>
+                    <rect class="viz-c2" x="50" y="25" width="40" height="20"/>
+                    <rect class="viz-c1" x="150" y="55" width="40" height="35"/>
+                    <rect class="viz-c2" x="150" y="35" width="40" height="20"/>
+                    <rect class="viz-c1" x="250" y="60" width="40" height="30"/>
+                    <rect class="viz-c2" x="250" y="42" width="40" height="18"/>
+                  </g>
+                </svg>
+                <div class="viz-legend">
+                  <span class="k viz-c1"><i></i>Commercial</span>
+                  <span class="k viz-c2"><i></i>Medicare</span>
+                </div>
+              </div>
+            </div>
+            <p class="note"><strong>Medicaid's key left with its mark, and Commercial is still blue.</strong> The hue belongs to the category, so the reader recognises it across every chart; the key names exactly what the plot draws and nothing else.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 04 THE INTERACTIVITY RULE -->
+      <section>
+        <span class="secnum">04 / The interactivity rule</span>
         <h2>The key never takes a click</h2>
         <p class="prose">
           <strong>No legend in VC is clickable.</strong> Not to toggle a series off, not to isolate one. The two demos below show what breaks when a key becomes a control, and what to reach for when a chart really does carry too many series to read.
@@ -351,9 +465,9 @@
         </div>
       </section>
 
-      <!-- 04 ONE LEGEND EVERYWHERE -->
+      <!-- 05 ONE LEGEND EVERYWHERE -->
       <section>
-        <span class="secnum">04 / One legend everywhere</span>
+        <span class="secnum">05 / One legend everywhere</span>
         <h2>The same key in every app</h2>
         <p class="prose">
           <strong>Every analytics app renders the legend the same way</strong>: placement, type tier, order rule, swatch shapes, states, and whether keys are clickable at all. Per-app legend variants are a defect, not a local decision.
@@ -365,22 +479,22 @@
             <div class="viz-grid c3">
               <div class="viz-tile">
                 <div class="h">Dashboards</div>
-                <svg viewBox="0 0 100 50" role="img" aria-label="Dashboards app: legend floated right, tiny coloured labels.">
+                <svg viewBox="0 0 100 50" role="img" aria-label="Dashboards app: legend floated right, tiny labels.">
                   <polyline class="viz-line thin viz-c1" points="6,36 30,30 54,32 78,20 94,16"/>
                   <polyline class="viz-line thin viz-c2" points="6,20 30,26 54,18 78,30 94,34"/>
                 </svg>
-                <div class="viz-legend anti-right anti-hue anti-small">
+                <div class="viz-legend anti-right anti-small">
                   <span class="k viz-c1"><i class="ln"></i>Diabetes</span>
                   <span class="k viz-c2"><i class="ln"></i>Asthma</span>
                 </div>
               </div>
               <div class="viz-tile">
                 <div class="h">Registries</div>
-                <svg viewBox="0 0 100 50" role="img" aria-label="Registries app: legend coloured, undersized, and sorted alphabetically rather than by the lines' order.">
+                <svg viewBox="0 0 100 50" role="img" aria-label="Registries app: legend undersized and sorted alphabetically rather than by the lines' order.">
                   <polyline class="viz-line thin viz-c1" points="6,36 30,30 54,32 78,20 94,16"/>
                   <polyline class="viz-line thin viz-c2" points="6,20 30,26 54,18 78,30 94,34"/>
                 </svg>
-                <div class="viz-legend anti-hue anti-small">
+                <div class="viz-legend anti-small">
                   <span class="k viz-c2"><i class="ln"></i>Asthma</span>
                   <span class="k viz-c1"><i class="ln"></i>Diabetes</span>
                 </div>
@@ -396,7 +510,7 @@
                 </div>
               </div>
             </div>
-            <p class="note"><strong>Three apps, three different keys for the same two series.</strong> Dashboards floats it right, shrinks it and colours the labels; Registries colours them too and sorts alphabetically; Measures makes them clickable. An analyst moving between all three in one afternoon works out the rules again on every screen.</p>
+            <p class="note"><strong>Three apps, three different keys for the same two series.</strong> Dashboards floats it right and shrinks it, Registries shrinks it and sorts alphabetically, Measures makes them clickable. An analyst moving between all three in one afternoon works out the rules again on every screen.</p>
           </div>
           <div class="stage use">
             <span class="judge"><span class="d"></span>Use</span>
@@ -444,13 +558,15 @@
           <li>A per-app type size that drops the key below the axis-label tier on one surface.</li>
           <li>A legend key that takes a click at all, whether it toggles, isolates or dims.</li>
           <li>A key sorted alphabetically while the rest of the product orders by the chart.</li>
-          <li>More than 6 keys with no grouped tail.</li>
+          <li>More than 5 keys with no grouped tail.</li>
+          <li>A key truncated to fit the row instead of wrapping or stacking.</li>
+          <li>A hue reassigned by position, so a category changes colour when a filter changes.</li>
         </ul>
       </section>
 
-      <!-- 05 THE REASONING -->
+      <!-- 06 THE REASONING -->
       <section>
-        <span class="secnum">05 / The reasoning</span>
+        <span class="secnum">06 / The reasoning</span>
         <h2>Five reasons the rule holds</h2>
         <p class="prose">
           Every rule above comes back to one cost: a legend makes the reader look away from the plot to find out what they are looking at. The rules keep that trip rare, and identical everywhere.
@@ -469,8 +585,8 @@
           </div>
           <div class="principle">
             <div class="n">3</div>
-            <h3>Keep colour in the swatch</h3>
-            <p>Coloured label text loses contrast at small sizes and repeats what the swatch already said.</p>
+            <h3>Never truncate a name</h3>
+            <p>Series names come from the data, and two that share a prefix become the same word once they are cut.</p>
           </div>
           <div class="principle">
             <div class="n">4</div>
@@ -480,14 +596,14 @@
           <div class="principle">
             <div class="n">5</div>
             <h3>Draw the same key in every app</h3>
-            <p>One grammar across the product means an analyst learns the key once instead of on every screen.</p>
+            <p>One grammar across the product means an analyst learns the key once instead of on every screen, and a hue pinned to its category survives every filter.</p>
           </div>
         </div>
       </section>
 
-      <!-- 06 WHAT THE MAJOR DESIGN SYSTEMS SAY -->
+      <!-- 07 WHAT THE MAJOR DESIGN SYSTEMS SAY -->
       <section>
-        <span class="secnum">06 / What the major design systems say</span>
+        <span class="secnum">07 / What the major design systems say</span>
         <h2>Agreed on the key, alone on the click</h2>
         <p class="prose">
           <strong>Every source agrees a legend is a last resort, and both systems that specify click behaviour make the key interactive.</strong> Carbon isolates a series on click, Highcharts toggles it. VC allows neither, and this record says so rather than implying the field backs us.
@@ -515,38 +631,40 @@
           <div class="syscard">
             <div class="src">Atlassian — Data visualization colour</div>
             <h3>Legend text follows text contrast, not graphical contrast</h3>
-            <p>Atlassian assigns the legend the <code>color.text</code> role, caps categorical charts at 5–6 colours, and holds chart colours to 3:1 against surfaces while text needs 4.5:1, the same split VC draws between swatch and label. It does not rely on colour alone.</p>
+            <p>Atlassian assigns the legend the <code>color.text</code> role, caps categorical charts at 5–6 colours, and holds chart colours to 3:1 against surfaces while text needs 4.5:1. VC takes the bottom of that range: five hues, with the tail grouped into a neutral "Other".</p>
             <span class="verdict tag n"><span class="dot"></span>text-role legend · 5–6 colour cap</span>
           </div>
           <div class="syscard">
             <div class="src">WCAG 2.2</div>
             <h3>The floors we keep, and the ones we avoid</h3>
-            <p>SC 1.4.11 sets 3:1 for the swatch as a graphical object and SC 1.4.3 sets 4.5:1 for the label text. Both bind our static key. SC 2.5.8's 24×24 px target and SC 1.4.1's ban on colour as the only signal are what a clickable key would add, which is part of why we do not build one.</p>
+            <p>SC 1.4.11 sets 3:1 for the swatch as a graphical object and SC 1.4.3 sets 4.5:1 for the label text. Both bind our static key. SC 2.5.8's 24×24 px target and SC 1.4.1's ban on colour as the only signal are what a clickable key would add, which is part of why we do not build one. The label text carries no colour requirement of its own, so 4.5:1 is the binding check on whatever colour it renders in.</p>
             <span class="verdict tag n"><span class="dot"></span>3:1 swatch · 4.5:1 text</span>
           </div>
         </div>
       </section>
 
-      <!-- 07 RECOMMENDATION -->
+      <!-- 08 RECOMMENDATION -->
       <section>
-        <span class="secnum">07 / Recommendation for VC</span>
+        <span class="secnum">08 / Recommendation for VC</span>
         <h2>A static key, drawn the same way everywhere</h2>
         <div class="reco">
           <h3>The house rule</h3>
           <ul class="clean cool">
             <li><strong>Label directly. A legend only when marks overlap or interleave.</strong> A single series, a sorted bar chart and small multiples never get one.</li>
             <li><strong>Below the plot, left-aligned, at axis-label size.</strong> Never floated right, never above the title, never smaller than the axis labels.</li>
-            <li><strong>Colour in the swatch, and the swatch shape follows the mark.</strong> Neutral label text, a square for fills, a rule for lines, a gradient labelled at both ends for a ramp.</li>
-            <li><strong>Order follows the chart, capped at 6 categorical keys.</strong> Stacking order, right-edge value or bar order, never the alphabet. Group the tail past 6.</li>
+            <li><strong>The swatch shape follows the mark.</strong> A square for fills, a rule for lines, a gradient labelled at both ends for a ramp.</li>
+            <li><strong>Order follows the chart, capped at 5 categorical keys.</strong> Stacking order, right-edge value or bar order, never the alphabet. Group the tail into a neutral "Other" past 5.</li>
+            <li><strong>Never truncate a key.</strong> Wrap, then stack into one column; a name that still does not fit means too many series.</li>
+            <li><strong>A filtered-out category takes its key with it,</strong> and hues stay pinned to categories.</li>
             <li><strong>Never clickable.</strong> A reader who needs fewer series gets small multiples; a reader who needs fewer rows gets the filter bar.</li>
             <li><strong>Identical in every app.</strong> Placement, type, order and behaviour never vary by surface.</li>
           </ul>
         </div>
       </section>
 
-      <!-- 08 REFERENCES -->
+      <!-- 09 REFERENCES -->
       <section>
-        <span class="secnum">08 / References</span>
+        <span class="secnum">09 / References</span>
         <h2>Sources</h2>
         <ul class="clean refs prose">
           <li><a href="https://carbondesignsystem.com/data-visualization/legends/">IBM Carbon — Legends</a> (avoid a legend when a direct label will do; bottom placement by default; click isolates a category; guidance marked a work in progress).</li>

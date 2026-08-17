@@ -44,7 +44,7 @@
     <div class="rulecard">
       <span class="k">The rule</span>
       <p>
-        Spend colour on exactly one job per chart: <strong>separate categories</strong> (the categorical set, capped at ~6), <strong>show magnitude</strong> (the sequential ramp, one hue low→high), or <strong>show deviation</strong> from a target or midpoint (the diverging ramp). <strong>Never as decoration, never as the only encoding</strong> — pair it with position, a label, or a shape. And reserve the attention hue for "needs attention" <strong>consistently</strong>: one hue means one thing across the whole dashboard.
+        Spend colour on exactly one job per chart: <strong>separate categories</strong> (the categorical set, capped at 5), <strong>show magnitude</strong> (the sequential ramp, one hue low→high), or <strong>show deviation</strong> from a target or midpoint (the diverging ramp). <strong>Never as decoration, never as the only encoding</strong> — pair it with position, a label, or a shape. And reserve the attention hue for "needs attention" <strong>consistently</strong>: one hue means one thing across the whole dashboard.
       </p>
     </div>
   </header>
@@ -68,8 +68,8 @@
       <tbody>
         <tr>
           <th scope="row">Categorical</th>
-          <td data-l="Use it for">Distinct, unordered series — lines of business, measure domains. Cap at ~6; past that colour stops separating.</td>
-          <td data-l="Tokens"><code>--cat-1…6</code> · classes <code>.viz-c1…6</code></td>
+          <td data-l="Use it for">Distinct, unordered series — lines of business, measure domains. Cap at 5; past that colour stops separating, so group the tail into a neutral "Other".</td>
+          <td data-l="Tokens"><code>--cat-1…5</code> · classes <code>.viz-c1…5</code></td>
         </tr>
         <tr>
           <th scope="row">Sequential</th>
@@ -99,7 +99,7 @@
         <div class="viz-board">
           <div class="bbar"><i></i><i></i><i></i><em>Members by contract type · 8 colours</em></div>
           <div class="chart viz-plot">
-            <svg viewBox="0 0 300 44" role="img" aria-label="A single stacked bar split into eight coloured segments, indistinguishable past the sixth, forcing the reader to the legend.">
+            <svg viewBox="0 0 300 44" role="img" aria-label="A single stacked bar split into eight coloured segments, indistinguishable past the fifth, forcing the reader to the legend.">
               <g class="viz-bars">
                 <rect class="viz-c1" x="2"    y="8" width="46" height="20"/>
                 <rect class="viz-c2" x="49"   y="8" width="42" height="20"/>
@@ -123,7 +123,7 @@
             </div>
           </div>
         </div>
-        <p class="note"><strong>Eight segments, and the last two repeat hues the first two already used.</strong> Past ~6 categories the palette runs out of separable colours; the reader is stuck matching faint bands to a legend, and two "Commercial" blues aren't even the same series.</p>
+        <p class="note"><strong>Eight segments: the sixth reaches past the five-hue set, and the last two repeat hues the first two already spent.</strong> Past 5 categories the palette runs out of separable colours; the reader is stuck matching faint bands to a legend, and two "Commercial" blues aren't even the same series.</p>
       </div>
       <div class="stage use">
         <span class="judge"><span class="d"></span>Use</span>
@@ -334,7 +334,7 @@
       <div class="syscard">
         <div class="src">Synthesis</div>
         <h3>The pattern for tools like ours</h3>
-        <p>For VC's mixed dashboards read at a glance: pick the palette from the data shape, cap categorical at ~6, colour by direction not raw value, and never let hue be the only encoding. Our usage should follow it.</p>
+        <p>For VC's mixed dashboards read at a glance: pick the palette from the data shape, cap categorical at 5, colour by direction not raw value, and never let hue be the only encoding. Our usage should follow it.</p>
         <span class="verdict tag v"><span class="dot"></span>the VC colour default</span>
       </div>
     </div>

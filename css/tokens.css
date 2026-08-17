@@ -60,18 +60,21 @@
    data records govern their use. --ok/--error keep their existing semantic
    meanings and are reused here rather than duplicated.
 
-   Categorical — up to 6 series. Past 6, colour stops separating: group the tail
-   or switch to position. --cat-1/-2 are independent literal data hues (blue 250,
-   vermilion 32), decoupled from the --cool/--warm brand accents so a brand
-   re-palette can't drag the chart set onto a colliding hue — they are pinned for
-   perceptual separation and colourblind safety, not to stay on-brand. */
+   Categorical — up to 5 series. Past 5, group the tail into a neutral "Other"
+   (.viz-mute) rather than reaching for another hue: the set holds five
+   separable, colour-blind-safe hues and no more. --cat-1/-2 are independent
+   literal data hues (blue 250, vermilion 32), decoupled from the --cool/--warm
+   brand accents so a brand re-palette can't drag the chart set onto a
+   colliding hue — they are pinned for perceptual separation and colourblind
+   safety, not to stay on-brand. --cat-6 sits outside the sanctioned set: its
+   only consumer is the past-the-cap Avoid demo in records/colour-for-data.html. */
 :root{
   --cat-1: oklch(0.55 0.13 250);   /* blue      — pinned literal, decoupled from --cool */
   --cat-2: oklch(0.62 0.18 32);    /* vermilion — warm CB anchor, redder than a 42-hue orange */
   --cat-3: oklch(0.600 0.130 165); /* green   — unchanged */
   --cat-4: oklch(0.550 0.140 315); /* purple  — nudged 330→315 to clear brand Plum */
   --cat-5: oklch(0.620 0.100 200); /* teal    — unchanged */
-  --cat-6: oklch(0.700 0.120 85);  /* gold    — unchanged */
+  --cat-6: oklch(0.700 0.120 85);  /* gold — outside the 5-hue set; anti-pattern demo only */
 
   /* Sequential — one hue, light→dark, for an ordered quantity (low→high). */
   --seq-1: oklch(0.905 0.035 245);

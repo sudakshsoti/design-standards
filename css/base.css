@@ -529,6 +529,7 @@ textarea.inp{ height:auto; min-height:4.6rem; padding:0.5rem 0.65rem; resize:ver
 .viz-c3{ --c:var(--cat-3); }
 .viz-c4{ --c:var(--cat-4); }
 .viz-c5{ --c:var(--cat-5); }
+/* .viz-c6: outside the sanctioned 5-hue set; anti-pattern demo only. */
 .viz-c6{ --c:var(--cat-6); }
 /* .viz-pos, .viz-ink: reserved viz vocabulary — no consumer yet; kept for future data records. */
 .viz-pos{ --c:var(--ok); }
@@ -561,21 +562,24 @@ textarea.inp{ height:auto; min-height:4.6rem; padding:0.5rem 0.65rem; resize:ver
 .viz-legend .k i{ width:0.72em; height:0.72em; border-radius:var(--radius-1); background:var(--c, var(--ink-3)); flex:none; }
 .viz-legend .k i.ln{ width:1.1em; height:2px; border-radius:1px; }
 .viz-legend .k i.rmp{ width:4.2em; height:0.62em; border-radius:var(--radius-1); background:linear-gradient(to right, var(--seq-1), var(--seq-3), var(--seq-5)); }
+.viz-legend.stack{ flex-direction:column; align-items:flex-start; } /* long-name layout, records/legends.html §03 */
 
 /* Legend states — governed by records/legends.html. Schematic: no :hover, no JS.
    .anti-act attaches to .k (a clickable-looking key is itself the anti-pattern);
-   .anti-right, .anti-hue and .anti-small attach to .viz-legend (the row-level
-   placement, colour and size anti-patterns). All four exist only to draw the
+   .anti-right, .anti-small and .anti-squeeze attach to .viz-legend (the row-level
+   placement, size and truncation anti-patterns). All exist only to draw the
    anti-pattern stages in that record, named after ul.clean.anti to read as
-   the wrong way, not a variant. */
+   the wrong way, not a variant. .anti-squeeze truncates via .k > span because
+   .k is display:inline-flex, so text-overflow can't ellipsise a bare text
+   node; a demo using it must wrap its label text in an inner <span>. */
 .viz-legend .k.anti-act{ padding:0.24rem 0.44rem; border:1px solid var(--rule-strong); border-radius:var(--radius-2); background:var(--paper); }
 .viz-legend .k.anti-act.on{ background:var(--paper-3); }
 .viz-legend .k.anti-act.off{ color:var(--ink-3); text-decoration:line-through; }
 .viz-legend .k.anti-act.off i{ background:transparent; box-shadow:inset 0 0 0 1px var(--ink-3); }
 .viz-legend .k.anti-act.off i.ln{ background:var(--ink-3); opacity:0.4; box-shadow:none; }
 .viz-legend.anti-right{ justify-content:flex-end; }
-.viz-legend.anti-hue .k{ color:var(--c); }
 .viz-legend.anti-small .k{ font-size:0.52rem; }
+.viz-legend.anti-squeeze .k > span{ display:block; max-width:9.6em; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
 
 /* ---------- Schematic demo-tooltip kit (tooltip-usage record) ----------
    Static, permanently-open bubbles for record demos — not a live component.
