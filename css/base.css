@@ -563,15 +563,16 @@ textarea.inp{ height:auto; min-height:4.6rem; padding:0.5rem 0.65rem; resize:ver
 .viz-legend .k i.rmp{ width:4.2em; height:0.62em; border-radius:var(--radius-1); background:linear-gradient(to right, var(--seq-1), var(--seq-3), var(--seq-5)); }
 
 /* Legend states — governed by records/legends.html. Schematic: no :hover, no JS.
-   .anti-right, .anti-hue and .anti-small exist only to draw the anti-pattern
-   stages in that record, named after ul.clean.anti to read as the wrong way,
-   not a variant. */
-.viz-legend .k.act{ padding:0.24rem 0.44rem; min-height:24px; border:1px solid var(--rule-strong); border-radius:var(--radius-2); background:var(--paper); }
-.viz-legend .k.act.on{ background:var(--paper-3); }
-.viz-legend .k.act.off{ color:var(--ink-3); text-decoration:line-through; }
-.viz-legend .k.act.off i{ background:transparent; box-shadow:inset 0 0 0 1px var(--ink-3); }
-.viz-legend .k.act.off i.ln{ background:var(--ink-3); opacity:0.4; box-shadow:none; }
-.viz-legend .k.focused{ outline:2px solid var(--cool); outline-offset:2px; }
+   .anti-act attaches to .k (a clickable-looking key is itself the anti-pattern);
+   .anti-right, .anti-hue and .anti-small attach to .viz-legend (the row-level
+   placement, colour and size anti-patterns). All four exist only to draw the
+   anti-pattern stages in that record, named after ul.clean.anti to read as
+   the wrong way, not a variant. */
+.viz-legend .k.anti-act{ padding:0.24rem 0.44rem; border:1px solid var(--rule-strong); border-radius:var(--radius-2); background:var(--paper); }
+.viz-legend .k.anti-act.on{ background:var(--paper-3); }
+.viz-legend .k.anti-act.off{ color:var(--ink-3); text-decoration:line-through; }
+.viz-legend .k.anti-act.off i{ background:transparent; box-shadow:inset 0 0 0 1px var(--ink-3); }
+.viz-legend .k.anti-act.off i.ln{ background:var(--ink-3); opacity:0.4; box-shadow:none; }
 .viz-legend.anti-right{ justify-content:flex-end; }
 .viz-legend.anti-hue .k{ color:var(--c); }
 .viz-legend.anti-small .k{ font-size:0.52rem; }

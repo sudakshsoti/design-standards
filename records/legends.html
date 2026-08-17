@@ -31,13 +31,13 @@
         <div class="rechead"><span class="status draft"><span class="d"></span>Draft</span> <a class="eyebrow" href="../index.html#dv-presentation">Data visualization · Presentation and scale</a></div>
         <h1>A legend is a key,<br>not a control</h1>
         <p class="lead prose" style="margin-top:1.5rem;">
-          Most charts do not need a legend — label the marks. When marks overlap or interleave, the key sits below the plot on the axis-label tier, colour lives in the swatch and never in the text, and it reads in the same order as the chart. It stays a static key unless hiding a series is real work, and even then it never filters anything.
+          Most charts do not need a legend, so label the marks instead. When marks genuinely overlap, the key goes below the plot at axis-label size, colour in the swatch, label in plain ink, ordered the way the chart is ordered. It never takes a click. A reader who needs fewer series on screen gets small multiples or the filter bar.
         </p>
 
         <div class="context">
           <span class="k">Our context</span>
           <p>
-            Analysts and care managers read dense dashboards on large monitors across several separate analytics apps — dashboards, registries, measure builders. <strong>The same reader moves between those apps all day, so a key that changes size, order or behaviour between them stops being a key and becomes something to relearn.</strong>
+            Analysts and care managers read dense dashboards on large monitors, across several separate analytics apps: dashboards, registries, measure builders. <strong>The same reader moves between those apps all day, so a key that changes size, order or behaviour between them is one more thing to work out on every screen.</strong>
           </p>
         </div>
 
@@ -45,23 +45,23 @@
           <span class="k">The rule (provisional)</span>
           <p>Label the marks first; reach for a legend only when they cannot carry their own names.</p>
           <ul class="clean">
-            <li><strong>A legend only for overlapping or interleaved marks</strong> — 3+ stacked segments, 2+ lines, a continuous colour ramp. Everything else gets a direct label.</li>
-            <li><strong>Below the plot, left-aligned to its left edge.</strong> Never floated right, never a right-hand rail; wraps to a second row before it compresses.</li>
-            <li><strong>Axis-label tier type, colour in the swatch.</strong> Same size as the chart's axis labels; the label stays neutral ink, the swatch carries the mark colour.</li>
-            <li><strong>Order follows the chart, never the alphabet</strong> — stacking order, line value at the right-hand edge, bar order.</li>
-            <li><strong>Static by default.</strong> A key becomes a control only when hiding a series is real analytical work, and then it toggles a series off and on — it never isolates one.</li>
-            <li><strong>Never a filter.</strong> Hiding a series changes this one chart's view, nothing else — not another chart, not an export, not a saved view.</li>
+            <li><strong>A legend only when marks overlap or interleave</strong>: 3+ stacked segments, 2+ lines, a continuous colour ramp. Everything else gets a direct label.</li>
+            <li><strong>Below the plot, left-aligned to its left edge.</strong> Never floated right, never a right-hand rail. It wraps to a second row before it compresses.</li>
+            <li><strong>Axis-label tier type, colour in the swatch.</strong> Same size as the chart's axis labels. The label stays neutral ink and the swatch carries the mark colour.</li>
+            <li><strong>Order follows the chart, never the alphabet.</strong> Stacking order, line value at the right-hand edge, or bar order.</li>
+            <li><strong>Never clickable.</strong> A key that toggles or isolates a series is a control wearing a label. When a reader needs fewer series on screen, small multiples or the filter bar does that job.</li>
+            <li><strong>It never changes what the chart shows.</strong> Narrowing the data belongs to the filter bar and to saved views. See <a href="filters-vs-tabs.html">tabs are not filters</a>.</li>
           </ul>
-          <p>The deciding question is: <strong>is hiding a series analytical work, or decoration?</strong></p>
+          <p>The deciding question is: <strong>does the reader have to look away from the plot to know what they are looking at?</strong> If not, the chart does not need a key.</p>
         </div>
       </header>
 
       <!-- 01 QUICK REFERENCE -->
       <section>
         <span class="secnum">01 / Quick reference</span>
-        <h2>Key, direct labels, or nothing</h2>
+        <h2>Direct labels first, a key only when marks collide</h2>
         <p class="prose">
-          <strong>A legend is the last resort, not the default.</strong> Most chart situations already carry their own names; the table below sorts which do.
+          <strong>Most chart situations already name themselves.</strong> The table sorts which ones do, and which genuinely need a key.
         </p>
         <table class="tbl tri">
           <thead>
@@ -75,7 +75,7 @@
             <tr>
               <th scope="row">Single-series chart</th>
               <td data-l="What carries the names">A title or axis label, not a key.</td>
-              <td data-l="Why">One category — a legend would duplicate it for nothing.</td>
+              <td data-l="Why">One category, so a legend would duplicate it for nothing.</td>
             </tr>
             <tr>
               <th scope="row">Sorted bar chart</th>
@@ -99,12 +99,12 @@
             </tr>
             <tr>
               <th scope="row">Small multiples</th>
-              <td data-l="What carries the names">A title per tile — no legend.</td>
+              <td data-l="What carries the names">A title per tile, no legend.</td>
               <td data-l="Why">Each tile is already named; a shared key would repeat the titles.</td>
             </tr>
             <tr>
               <th scope="row">Dashboard tile</th>
-              <td data-l="What carries the names">Nothing — the tile gets a panel instead.</td>
+              <td data-l="What carries the names">Nothing: the tile gets a panel instead.</td>
               <td data-l="Why">No legend at tile scale; a tile that needs a key needs a panel.</td>
             </tr>
             <tr>
@@ -119,9 +119,9 @@
       <!-- 02 THE SPEC -->
       <section>
         <span class="secnum">02 / The spec</span>
-        <h2>Size, colour, order, placement</h2>
+        <h2>How to draw the key</h2>
         <p class="prose">
-          <strong>Seven properties are fixed, not a matter of taste.</strong> The demos on this page are drawn at reduced schematic scale; the 12px type floor below applies to product charts, not to these illustrations.
+          <strong>Seven properties are fixed.</strong> The demos on this page are drawn at reduced schematic scale, so the 12px floor below applies to product charts rather than to these illustrations.
         </p>
 
         <table class="tbl tri">
@@ -140,17 +140,17 @@
             </tr>
             <tr>
               <th scope="row">Type size</th>
-              <td data-l="The rule">The axis-label tier — same family and size as the chart's axis labels, sentence case, no uppercase tracking, never below 12px in product.</td>
+              <td data-l="The rule">The axis-label tier: same family and size as the chart's axis labels, sentence case, no uppercase tracking, never below 12px in product.</td>
               <td data-l="Why">Legend labels are text, so they hold 4.5:1 against the plot background.</td>
             </tr>
             <tr>
               <th scope="row">Label colour</th>
-              <td data-l="The rule">Neutral ink (<code>var(--ink-2)</code>) — colour lives in the swatch, never in the text.</td>
+              <td data-l="The rule">Neutral ink (<code>var(--ink-2)</code>), colour lives in the swatch, never in the text.</td>
               <td data-l="Why">Coloured label text duplicates the swatch and loses contrast at small sizes.</td>
             </tr>
             <tr>
               <th scope="row">Swatch shape</th>
-              <td data-l="The rule">Follows the mark: filled square for bar, stack and area fills; a short 2px rule for line series; a labelled gradient bar with end labels for a ramp. A dot or dumbbell mark is out of scope here — see <a href="ranges-and-dot-plots.html">dot plots and ranges</a>.</td>
+              <td data-l="The rule">Follows the mark: filled square for bar, stack and area fills; a short 2px rule for line series; a labelled gradient bar with end labels for a ramp. A dot or dumbbell mark is out of scope here, see <a href="ranges-and-dot-plots.html">dot plots and ranges</a>.</td>
               <td data-l="Why">Swatches are graphical objects, so they hold 3:1 against the background.</td>
             </tr>
             <tr>
@@ -165,8 +165,8 @@
             </tr>
             <tr>
               <th scope="row">Ramp keys</th>
-              <td data-l="The rule">Never clickable.</td>
-              <td data-l="Why">There are no discrete members to toggle.</td>
+              <td data-l="The rule">Labelled at both ends, low value first, and never clickable.</td>
+              <td data-l="Why">The reader scans low to high the same way the axis does, so end labels have to match that order.</td>
             </tr>
           </tbody>
         </table>
@@ -228,15 +228,15 @@
             </div>
           </div>
         </div>
-        <p class="note"><strong>A ramp key is labelled at its ends and is never clickable.</strong> There are no discrete members to toggle — the scale is continuous.</p>
+        <p class="note"><strong>A ramp key is labelled at both ends.</strong> The scale is continuous, so there are no discrete members to name.</p>
       </section>
 
-      <!-- 03 CLICKABLE OR NOT -->
+      <!-- 03 THE INTERACTIVITY RULE -->
       <section>
-        <span class="secnum">03 / Clickable or not</span>
-        <h2>Static by default; a control only when hiding is work</h2>
+        <span class="secnum">03 / The interactivity rule</span>
+        <h2>The key never takes a click</h2>
         <p class="prose">
-          <strong>A legend is a static key everywhere, with one exception.</strong> When an exploratory panel holds 3+ comparable series and hiding one is real analytical work, the key becomes a button row — but the contract is exact: toggle, not isolate; a non-colour hidden state; a reset; no rescale.
+          <strong>No legend in VC is clickable.</strong> Not to toggle a series off, not to isolate one. The two demos below show what breaks when a key becomes a control, and what to reach for when a chart really does carry too many series to read.
         </p>
 
         <div class="compare">
@@ -258,13 +258,13 @@
                   </g>
                 </svg>
                 <div class="viz-legend">
-                  <span class="k act on viz-c1" role="button" aria-pressed="true"><i></i>Commercial</span>
-                  <span class="k act on viz-c2" role="button" aria-pressed="true"><i></i>Medicare</span>
-                  <span class="k act off viz-c3" role="button" aria-pressed="false"><i></i>Medicaid</span>
+                  <span class="k anti-act on viz-c1" role="button" aria-pressed="true"><i></i>Commercial</span>
+                  <span class="k anti-act on viz-c2" role="button" aria-pressed="true"><i></i>Medicare</span>
+                  <span class="k anti-act off viz-c3" role="button" aria-pressed="false"><i></i>Medicaid</span>
                 </div>
               </div>
             </div>
-            <p class="note"><strong>Hiding Medicaid changed the total, so the axis rescaled.</strong> The two remaining segments now fill the frame — the bars look the same height as before, but they no longer mean the same thing. A stacked chart never gets an interactive legend.</p>
+            <p class="note"><strong>Hiding Medicaid changed the total, so the axis rescaled.</strong> The two remaining segments now fill the frame. The bars look the same height as before but no longer mean the same thing, which is why a stacked total must never be something a reader can switch off.</p>
           </div>
           <div class="stage use">
             <span class="judge"><span class="d"></span>Use</span>
@@ -293,7 +293,7 @@
                 </div>
               </div>
             </div>
-            <p class="note"><strong>A plain static key, and the totals stay honest.</strong> Nothing in this key is clickable — a stacked chart's total is the point of the chart, so no segment ever comes off it.</p>
+            <p class="note"><strong>A plain static key, and the totals stay honest.</strong> Nothing here is clickable, so the column always adds up to what it claims.</p>
           </div>
         </div>
 
@@ -311,34 +311,42 @@
                   <polyline class="viz-line thin viz-c3" points="20,80 74,65 128,50 182,40 236,35 290,30"/>
                 </svg>
                 <div class="viz-legend">
-                  <span class="k act on viz-mute" role="button" aria-pressed="true"><i class="ln"></i>Asthma</span>
-                  <span class="k act on viz-mute" role="button" aria-pressed="true"><i class="ln"></i>Depression</span>
-                  <span class="k act on viz-c3" role="button" aria-pressed="true"><i class="ln"></i>Diabetes</span>
+                  <span class="k anti-act on viz-mute" role="button" aria-pressed="true"><i class="ln"></i>Asthma</span>
+                  <span class="k anti-act on viz-mute" role="button" aria-pressed="true"><i class="ln"></i>Depression</span>
+                  <span class="k anti-act on viz-c3" role="button" aria-pressed="true"><i class="ln"></i>Diabetes</span>
                 </div>
               </div>
             </div>
-            <p class="note"><strong>One click isolated Diabetes, and colour is the only signal.</strong> Every key still reads <code>aria-pressed="true"</code>; a colour-blind reader or a keyboard user gets no indication that Asthma and Depression dropped out. Isolate-on-click and a colour-only hidden state both fail.</p>
+            <p class="note"><strong>One click isolated Diabetes, and colour is the only signal.</strong> Every key still reads <code>aria-pressed="true"</code>, so a colour-blind reader or a keyboard user gets no indication that Asthma and Depression dropped out. Making this correct needs a real button, a 24px target, a non-colour hidden state and a reset control, which is four more things to get wrong.</p>
           </div>
           <div class="stage use">
             <span class="judge"><span class="d"></span>Use</span>
             <div class="viz-board">
-              <div class="bbar"><i></i><i></i><i></i><em>Condition rates · Depression toggled off</em></div>
+              <div class="bbar"><i></i><i></i><i></i><em>Condition rates · small multiples</em></div>
               <div class="chart viz-plot">
-                <svg viewBox="0 0 300 100" role="img" aria-label="Three line series with one toggled off; the remaining two keep their original colour and position, and the axis has not rescaled.">
-                  <line class="viz-axis" x1="20" y1="10" x2="20" y2="90"/>
-                  <line class="viz-axis" x1="20" y1="90" x2="290" y2="90"/>
-                  <polyline class="viz-line thin viz-c1" points="20,60 74,58 128,62 182,56 236,58 290,55"/>
-                  <polyline class="viz-line thin viz-c3" points="20,80 74,65 128,50 182,40 236,35 290,30"/>
-                </svg>
-                <div class="viz-legend">
-                  <span class="k act on focused viz-c1" role="button" aria-pressed="true"><i class="ln"></i>Asthma</span>
-                  <span class="k act off viz-c2" role="button" aria-pressed="false"><i class="ln"></i>Depression</span>
-                  <span class="k act on viz-c3" role="button" aria-pressed="true"><i class="ln"></i>Diabetes</span>
-                  <span class="btn g">Show all</span>
+                <div class="viz-grid c3">
+                  <div class="viz-tile">
+                    <div class="h">Asthma</div>
+                    <svg viewBox="0 0 90 34" role="img" aria-label="Asthma trend, flat.">
+                      <polyline class="viz-line thin viz-c1" points="4,20 21,19 38,21 55,18 72,19 86,18"/>
+                    </svg>
+                  </div>
+                  <div class="viz-tile">
+                    <div class="h">Depression</div>
+                    <svg viewBox="0 0 90 34" role="img" aria-label="Depression trend, rising.">
+                      <polyline class="viz-line thin viz-c1" points="4,13 21,16 38,19 55,22 72,25 86,27"/>
+                    </svg>
+                  </div>
+                  <div class="viz-tile">
+                    <div class="h">Diabetes</div>
+                    <svg viewBox="0 0 90 34" role="img" aria-label="Diabetes trend, falling.">
+                      <polyline class="viz-line thin viz-c1" points="4,27 21,22 38,17 55,13 72,11 86,9"/>
+                    </svg>
+                  </div>
                 </div>
               </div>
             </div>
-            <p class="note"><strong>Depression is hollow and struck through, not just dimmed; Asthma carries the focus ring; "Show all" resets the row.</strong> Each key is a real button, hit area at least 24×24 CSS px, and the axis never moves — the remaining lines look exactly as they did before the click.</p>
+            <p class="note"><strong>Three panels, one hue, and no key at all.</strong> Each series gets its own frame and its own title, so nothing overlaps and nothing needs hiding. Past roughly 4 series this is the move; see <a href="line-charts.html">line charts and trends</a>. A reader who wants fewer rows rather than fewer series wants the filter bar.</p>
           </div>
         </div>
       </section>
@@ -348,7 +356,7 @@
         <span class="secnum">04 / One legend everywhere</span>
         <h2>The same key in every app</h2>
         <p class="prose">
-          <strong>Every analytics app renders the legend the same way</strong> — placement, type tier, order rule, swatch shapes, states, and whether keys are clickable at all. Per-app legend variants are a defect, not a local decision.
+          <strong>Every analytics app renders the legend the same way</strong>: placement, type tier, order rule, swatch shapes, states, and whether keys are clickable at all. Per-app legend variants are a defect, not a local decision.
         </p>
 
         <div class="compare">
@@ -383,12 +391,12 @@
                   <polyline class="viz-line thin viz-c1" points="6,36 30,30 54,32 78,20 94,16"/>
                 </svg>
                 <div class="viz-legend">
-                  <span class="k act on viz-c1" role="button" aria-pressed="true"><i class="ln"></i>Diabetes</span>
-                  <span class="k act off viz-c2" role="button" aria-pressed="false"><i class="ln"></i>Asthma</span>
+                  <span class="k anti-act on viz-c1" role="button" aria-pressed="true"><i class="ln"></i>Diabetes</span>
+                  <span class="k anti-act off viz-c2" role="button" aria-pressed="false"><i class="ln"></i>Asthma</span>
                 </div>
               </div>
             </div>
-            <p class="note"><strong>Three apps, three grammars.</strong> The reader relearns the key three times in one afternoon — different placement, different type, and one app's key even filters while another only decorates.</p>
+            <p class="note"><strong>Three apps, three different keys for the same two series.</strong> Dashboards floats it right, shrinks it and colours the labels; Registries colours them too and sorts alphabetically; Measures makes them clickable. An analyst moving between all three in one afternoon works out the rules again on every screen.</p>
           </div>
           <div class="stage use">
             <span class="judge"><span class="d"></span>Use</span>
@@ -427,53 +435,52 @@
                 </div>
               </div>
             </div>
-            <p class="note"><strong>One grammar, learned once.</strong> Same placement, same type tier, same order rule, same default behaviour — the reader carries what they know from one app straight into the next.</p>
+            <p class="note"><strong>The same key three times.</strong> Below the plot, left-aligned, axis-label size, ordered like the chart, static in all three. What the analyst learns on the dashboard still holds in the registry.</p>
           </div>
         </div>
 
         <ul class="clean anti">
-          <li>A per-app legend position — floated right in one app, below the plot in another.</li>
-          <li>A per-app type size, dropping the key below the axis-label tier in just one surface.</li>
-          <li>An app whose legend click narrows the underlying dataset instead of one chart's view.</li>
-          <li>An app that sorts keys alphabetically while the rest order by the chart.</li>
-          <li>An app showing more than 6 keys with no "Other" grouping.</li>
-          <li>One app toggling a series on click while another isolates it.</li>
+          <li>A per-app legend position, floated right in one app and below the plot in another.</li>
+          <li>A per-app type size that drops the key below the axis-label tier on one surface.</li>
+          <li>A legend key that takes a click at all, whether it toggles, isolates or dims.</li>
+          <li>A key sorted alphabetically while the rest of the product orders by the chart.</li>
+          <li>More than 6 keys with no grouped tail.</li>
         </ul>
       </section>
 
       <!-- 05 THE REASONING -->
       <section>
         <span class="secnum">05 / The reasoning</span>
-        <h2>Five forces behind the rule</h2>
+        <h2>Five reasons the rule holds</h2>
         <p class="prose">
-          A legend costs the reader a round trip between the key and the plot. Every rule above exists to make that trip as rare, as fast and as consistent as possible.
+          Every rule above comes back to one cost: a legend makes the reader look away from the plot to find out what they are looking at. The rules keep that trip rare, and identical everywhere.
         </p>
 
         <div class="principles">
           <div class="principle">
             <div class="n">1</div>
-            <h3>A legend is a round trip</h3>
-            <p><strong>Every glance at the key costs a saccade a direct label would have saved.</strong> See <a href="colour-for-data.html">colour for data</a> on when colour is the right channel at all.</p>
+            <h3>Label the mark before you add a key</h3>
+            <p><strong>Every glance at a key is a trip away from the plot.</strong> A direct label answers the same question without moving the reader's eye. See <a href="colour-for-data.html">colour for data</a> on when colour should carry a category at all.</p>
           </div>
           <div class="principle">
             <div class="n">2</div>
-            <h3>Small type fails first</h3>
-            <p>The key is already the smallest text in the chart, so it gets the axis-label tier — not a size below it.</p>
+            <h3>Hold the axis-label size</h3>
+            <p>The key is already the smallest text in a chart, so it takes the axis tier and never a step below it.</p>
           </div>
           <div class="principle">
             <div class="n">3</div>
-            <h3>Colour belongs to the mark</h3>
-            <p>Coloured label text loses contrast and repeats what the swatch already said.</p>
+            <h3>Keep colour in the swatch</h3>
+            <p>Coloured label text loses contrast at small sizes and repeats what the swatch already said.</p>
           </div>
           <div class="principle">
             <div class="n">4</div>
-            <h3>A control that looks like a label gets clicked by accident</h3>
-            <p>A click that reshapes the data is not recoverable by looking at it.</p>
+            <h3>Never make a label take a click</h3>
+            <p>A control that looks like a label gets clicked by accident, and the state it leaves behind is invisible to a reader who looked away.</p>
           </div>
           <div class="principle">
             <div class="n">5</div>
-            <h3>Consistency is the whole value of a key</h3>
-            <p>One grammar across every app means the reader learns it once.</p>
+            <h3>Draw the same key in every app</h3>
+            <p>One grammar across the product means an analyst learns the key once instead of on every screen.</p>
           </div>
         </div>
       </section>
@@ -481,41 +488,41 @@
       <!-- 06 WHAT THE MAJOR DESIGN SYSTEMS SAY -->
       <section>
         <span class="secnum">06 / What the major design systems say</span>
-        <h2>Agreement on the key, disagreement on the click</h2>
+        <h2>Agreed on the key, alone on the click</h2>
         <p class="prose">
-          <strong>Every source agrees a legend is a last resort; they split on what a click should do.</strong> Carbon isolates a series on click, Highcharts toggles it — VC picks toggle, and says so plainly rather than implying the two agree.
+          <strong>Every source agrees a legend is a last resort, and both systems that specify click behaviour make the key interactive.</strong> Carbon isolates a series on click, Highcharts toggles it. VC allows neither, and this record says so rather than implying the field backs us.
         </p>
 
         <div class="systems">
           <div class="syscard">
             <div class="src">IBM Carbon — Legends</div>
             <h3>Avoid the legend when a direct label will do</h3>
-            <p>Carbon: "When possible, avoid using a legend and label data representations directly. Legends rely on visual association, which can make a chart more difficult to understand." A chart with one category needs no legend at all. Legends sit at the bottom by default. Hovering a category dims the others to 30% opacity, and <strong>clicking a legend item isolates that category</strong> — the opposite of VC's toggle. Carbon itself marks this legend guidance a work in progress.</p>
+            <p>Carbon: "When possible, avoid using a legend and label data representations directly. Legends rely on visual association, which can make a chart more difficult to understand." A chart with one category needs no legend at all. Legends sit at the bottom by default. Hovering a category dims the others to 30% opacity, and <strong>clicking a legend item isolates that category</strong>. VC allows neither that nor a toggle. Carbon itself marks this legend guidance a work in progress.</p>
             <span class="verdict tag n"><span class="dot"></span>direct label first · click isolates</span>
           </div>
           <div class="syscard">
             <div class="src">Highcharts — <code>legend.events.itemClick</code></div>
             <h3>The default click toggles, it doesn't isolate</h3>
-            <p>Highcharts' own API reference: "The default action is to toggle the visibility of the series, point or data class." This is the behaviour VC's toggle default matches — one series off and on, the rest untouched.</p>
+            <p>Highcharts' own API reference: "The default action is to toggle the visibility of the series, point or data class." A VC chart built on Highcharts has to switch that default off, which is a cost we take deliberately for one predictable key.</p>
             <span class="verdict tag n"><span class="dot"></span>click toggles visibility</span>
           </div>
           <div class="syscard">
             <div class="src">Material Design 3 — Data visualization accessibility</div>
             <h3>Labels and keyboard access, not a size or placement default</h3>
-            <p>Material asks charts to "provide labels for legends, data points, axes, and marks" and requires proper ARIA and keyboard navigation on any interactive chart. It does not specify a type-size floor or a placement default — VC's placement and 12px floor are its own.</p>
+            <p>Material asks charts to "provide labels for legends, data points, axes, and marks" and requires proper ARIA and keyboard navigation on any interactive chart. It does not specify a type-size floor or a placement default: VC's placement and 12px floor are its own. A static key sidesteps the requirement, because there is nothing to operate.</p>
             <span class="verdict tag n"><span class="dot"></span>labelled and keyboard-accessible</span>
           </div>
           <div class="syscard">
             <div class="src">Atlassian — Data visualization colour</div>
             <h3>Legend text follows text contrast, not graphical contrast</h3>
-            <p>Atlassian assigns the legend the <code>color.text</code> role, caps categorical charts at 5–6 colours, and holds chart colours to 3:1 against surfaces while text needs 4.5:1 — the same split VC draws between swatch and label. It does not rely on colour alone.</p>
+            <p>Atlassian assigns the legend the <code>color.text</code> role, caps categorical charts at 5–6 colours, and holds chart colours to 3:1 against surfaces while text needs 4.5:1, the same split VC draws between swatch and label. It does not rely on colour alone.</p>
             <span class="verdict tag n"><span class="dot"></span>text-role legend · 5–6 colour cap</span>
           </div>
           <div class="syscard">
             <div class="src">WCAG 2.2</div>
-            <h3>The floors an interactive key must clear</h3>
-            <p>SC 2.5.8 sets a 24×24 CSS px minimum pointer target — the size of every <code>.k.act</code> button. SC 1.4.11 sets 3:1 for the swatch as a graphical object; SC 1.4.3 sets 4.5:1 for the label text. SC 1.4.1 forbids colour as the only signal — the reason the hidden state also carries a hollow swatch and a strikethrough.</p>
-            <span class="verdict tag n"><span class="dot"></span>24px target · 3:1 swatch · 4.5:1 text</span>
+            <h3>The floors we keep, and the ones we avoid</h3>
+            <p>SC 1.4.11 sets 3:1 for the swatch as a graphical object and SC 1.4.3 sets 4.5:1 for the label text. Both bind our static key. SC 2.5.8's 24×24 px target and SC 1.4.1's ban on colour as the only signal are what a clickable key would add, which is part of why we do not build one.</p>
+            <span class="verdict tag n"><span class="dot"></span>3:1 swatch · 4.5:1 text</span>
           </div>
         </div>
       </section>
@@ -523,16 +530,16 @@
       <!-- 07 RECOMMENDATION -->
       <section>
         <span class="secnum">07 / Recommendation for VC</span>
-        <h2>Static key, axis-tier type, one grammar</h2>
+        <h2>A static key, drawn the same way everywhere</h2>
         <div class="reco">
           <h3>The house rule</h3>
           <ul class="clean cool">
-            <li><strong>Label directly; a legend only for overlapping or interleaved marks.</strong> A single series, a sorted bar chart and small multiples never get one.</li>
-            <li><strong>Below the plot, left-aligned, on the axis-label tier.</strong> Never floated right, never above the title, never smaller than the axis labels.</li>
-            <li><strong>Colour lives in the swatch; the swatch shape follows the mark.</strong> Neutral label text, a square for fills, a rule for lines, a labelled gradient for a ramp.</li>
-            <li><strong>Order follows the chart, capped at 6 categorical keys.</strong> Stacking order, right-edge value, or bar order — never the alphabet; group the tail past 6.</li>
-            <li><strong>Static by default; a toggle only when hiding a series is real work.</strong> Click toggles one series off and on — it never isolates — and a stacked chart never gets an interactive key.</li>
-            <li><strong>Never a filter, and identical in every app.</strong> Hiding a series changes one chart's view only; placement, type, order and behaviour never vary by app.</li>
+            <li><strong>Label directly. A legend only when marks overlap or interleave.</strong> A single series, a sorted bar chart and small multiples never get one.</li>
+            <li><strong>Below the plot, left-aligned, at axis-label size.</strong> Never floated right, never above the title, never smaller than the axis labels.</li>
+            <li><strong>Colour in the swatch, and the swatch shape follows the mark.</strong> Neutral label text, a square for fills, a rule for lines, a gradient labelled at both ends for a ramp.</li>
+            <li><strong>Order follows the chart, capped at 6 categorical keys.</strong> Stacking order, right-edge value or bar order, never the alphabet. Group the tail past 6.</li>
+            <li><strong>Never clickable.</strong> A reader who needs fewer series gets small multiples; a reader who needs fewer rows gets the filter bar.</li>
+            <li><strong>Identical in every app.</strong> Placement, type, order and behaviour never vary by surface.</li>
           </ul>
         </div>
       </section>
@@ -546,9 +553,9 @@
           <li><a href="https://api.highcharts.com/highcharts/legend.events.itemClick">Highcharts — legend.events.itemClick</a> (the default click action toggles series visibility, not isolate).</li>
           <li><a href="https://m3.material.io/blog/data-visualization-accessibility">Material Design 3 — Data visualization accessibility</a> (labels for legends, data points, axes and marks; ARIA and keyboard navigation for interactive charts).</li>
           <li><a href="https://atlassian.design/foundations/color-new/data-visualization-color">Atlassian — Data visualization colour</a> (legend assigned the text colour role; categorical charts capped at 5–6 colours; 3:1 for chart colour, 4.5:1 for text).</li>
-          <li><a href="https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html">WCAG 2.2 SC 2.5.8 — Target Size (Minimum)</a> (pointer targets at least 24×24 CSS px).</li>
+          <li><a href="https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html">WCAG 2.2 SC 2.5.8 — Target Size (Minimum)</a> (pointer targets at least 24×24 CSS px; the floor a clickable key would still need to clear, which is part of why VC does not build one).</li>
           <li><a href="https://www.w3.org/WAI/WCAG22/Understanding/non-text-contrast.html">WCAG 2.2 SC 1.4.11 — Non-text Contrast</a> (meaningful graphical objects need 3:1 against adjacent colours — the swatch requirement).</li>
-          <li><a href="https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html">WCAG 2.2 SC 1.4.1 — Use of Color</a> (colour must not be the only means of conveying information — why the hidden state also carries a hollow swatch and a strikethrough).</li>
+          <li><a href="https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html">WCAG 2.2 SC 1.4.1 — Use of Color</a> (colour must not be the only means of conveying information; the reason an isolate-on-click key that signals its hidden state through colour alone is a defect, not a variant).</li>
           <li><a href="https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html">WCAG 2.2 SC 1.4.3 — Contrast (Minimum)</a> (legend labels are text, so 4.5:1 applies to them).</li>
           <li><a href="https://github.com/Shopify/polaris-viz/blob/main/PRINCIPLES.md">Shopify Polaris Viz — Principles</a> (historical precedent only: names "legends, tool-tips, labels" as the contextual elements that must give "a cohesive and consistent user experience"; the package is now deprecated and the current Polaris data-visualization URL 404s).</li>
         </ul>
