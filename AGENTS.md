@@ -44,10 +44,24 @@ new component style, that is a conversation, not a quiet addition.
 
 ## How a record is built
 
-Adding a record = duplicate `records/_template.html`, fill every `<!-- TODO -->`,
-add one `<a class="regrow">` to `index.html` inside the right `.reggroup` (or
-`.regsub`), and bump that category's count in the `.homenav` rail. That is the
-entire workflow — no registration, nothing to generate.
+Adding a record:
+
+1. Duplicate `records/_template.html`; fill every `<!-- TODO -->`.
+2. Number sections `01..NN`; give each `<section>` a matching `id="sNN"`.
+3. Fill the `.oncontents` list — one `<li>` per section, label = the section's `<h2>`.
+4. Fill the `.related` block: prev/next by shelf register order, plus 2–3
+   see-also links with a ≤14-word reason each. See-also is directed; do not add
+   backlinks. **Do** fix the two shelf neighbours: the record now sitting before
+   this one gains it as `.relnext`, the one after gains it as `.relprev`.
+5. Add the `<a class="regrow">` to `index.html` and bump the `.homenav` count.
+6. Add any of the record's terms to `keywords.html` that Find on `index.html`
+   would miss.
+
+**Ids are positional, matching `.secnum`.** Inserting or reordering a section
+renumbers every `.secnum` after it, and its id, its `.oncontents` link, every
+in-page `§NN` reference, and every `keywords.html` row pointing at it must be
+renumbered to match. There is no ordinal-independent id scheme; check
+`keywords.html` for stale `#sNN` links whenever a record's sections change.
 
 **Where it files — by the subject the record governs, on three fixed shelves.**
 A chart → **Data visualization**, under its seam. A component or component

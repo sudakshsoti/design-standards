@@ -50,10 +50,25 @@
           </ul>
           <p>Either way, size every input to the content it holds — a date, code or amount is never full width.</p>
         </div>
+        <nav class="oncontents" aria-label="Sections of this record">
+          <span class="k">On this page</span>
+          <ol>
+            <li><a href="#s01">Place the form by its task, not the artboard</a></li>
+            <li><a href="#s02">Maximum input width by field type</a></li>
+            <li><a href="#s03">Size the box to the value</a></li>
+            <li><a href="#s04">Columns for structure, not to fill space</a></li>
+            <li><a href="#s05">Make structure visible</a></li>
+            <li><a href="#s06">Radios and checkboxes: stack them</a></li>
+            <li><a href="#s07">One concept per step; each step laid out to its task</a></li>
+            <li><a href="#s08">A capped single column is the convention</a></li>
+            <li><a href="#s09">Size the layout to the task; size every field to its content</a></li>
+            <li><a href="#s10">Sources</a></li>
+          </ol>
+        </nav>
       </header>
 
       <!-- 01 PAGE PLACEMENT -->
-      <section>
+      <section id="s01">
         <span class="secnum">01 / Page placement</span>
         <h2>Place the form by its task, not the artboard</h2>
         <p class="prose">
@@ -61,7 +76,7 @@
         </p>
         <ul class="clean">
           <li><strong>Sequential form</strong> — a single column capped at <strong>640px (40rem)</strong>, held there however wide the screen gets (the comparison below).</li>
-          <li><strong>Dense record</strong> edited daily — a structured, grouped grid sized to its content (§04).</li>
+          <li><strong>Dense record</strong> edited daily — a structured, grouped grid sized to its content (<a href="#s04">§04</a>).</li>
         </ul>
         <p class="prose" style="margin-top:0.85rem;">Neither one fills the artboard.</p>
 
@@ -149,7 +164,7 @@
       </section>
 
       <!-- 02 QUICK REFERENCE -->
-      <section>
+      <section id="s02">
         <span class="secnum">02 / Quick reference</span>
         <h2>Maximum input width by field type</h2>
         <p class="prose">
@@ -176,7 +191,7 @@
       </section>
 
       <!-- 03 FIELD WIDTH -->
-      <section>
+      <section id="s03">
         <span class="secnum">03 / Field width</span>
         <h2>Size the box to the value</h2>
         <p class="prose">
@@ -230,7 +245,7 @@
       </section>
 
       <!-- 04 COLUMNS -->
-      <section>
+      <section id="s04">
         <span class="secnum">04 / One column versus two</span>
         <h2>Columns for structure, not to fill space</h2>
         <p class="prose">
@@ -274,12 +289,12 @@
         </div>
 
         <p class="prose mt-lg">
-          <strong>Density is the exception that earns the grid.</strong> A record an analyst opens dozens of times a day — twenty-plus fields — scans faster in a <strong>structured</strong> grid than in one tall column: deliberate column groups, related fields together, each still sized to its content. That isn't the artboard-filling two-column this section warns against; it's the dense-record regime from §01, and what data-heavy systems (§08) actually do. The test: does the second column carry <em>structure</em>, or merely fill <em>space</em>?
+          <strong>Density is the exception that earns the grid.</strong> A record an analyst opens dozens of times a day — twenty-plus fields — scans faster in a <strong>structured</strong> grid than in one tall column: deliberate column groups, related fields together, each still sized to its content. That isn't the artboard-filling two-column this section warns against; it's the dense-record regime from <a href="#s01">§01</a>, and what data-heavy systems (<a href="#s08">§08</a>) actually do. The test: does the second column carry <em>structure</em>, or merely fill <em>space</em>?
         </p>
       </section>
 
       <!-- 05 GROUPING, LABELS, SPACING -->
-      <section>
+      <section id="s05">
         <span class="secnum">05 / Grouping, labels and spacing rhythm</span>
         <h2>Make structure visible</h2>
         <p class="prose">
@@ -329,7 +344,7 @@
       </section>
 
       <!-- 06 CHOICE CONTROLS -->
-      <section>
+      <section id="s06">
         <span class="secnum">06 / Choice controls</span>
         <h2>Radios and checkboxes: stack them</h2>
         <p class="prose">
@@ -424,11 +439,11 @@
       </section>
 
       <!-- 07 MULTI-STEP SCANNABILITY -->
-      <section>
+      <section id="s07">
         <span class="secnum">07 / Keeping long forms scannable</span>
         <h2>One concept per step; each step laid out to its task</h2>
         <p class="prose">
-          <strong>The placement and width rules carry into multi-step forms — applied per step, not flattened across all of them.</strong> Break the work into steps of one concept each; lay out each step to its own task (a sequential step in a capped column, a dense record in a structured grid, per §01 and §04); let the stepper, not a wall of fields, carry progress. A multi-step flow isn't automatically sequential — a step can be a dense record. When a step runs long, the named groups from §05 are the seams to scan by.
+          <strong>The placement and width rules carry into multi-step forms — applied per step, not flattened across all of them.</strong> Break the work into steps of one concept each; lay out each step to its own task (a sequential step in a capped column, a dense record in a structured grid, per <a href="#s01">§01</a> and <a href="#s04">§04</a>); let the stepper, not a wall of fields, carry progress. A multi-step flow isn't automatically sequential — a step can be a dense record. When a step runs long, the named groups from <a href="#s05">§05</a> are the seams to scan by.
         </p>
 
         <div class="prose">
@@ -452,7 +467,7 @@
       </section>
 
       <!-- 08 PRECEDENT -->
-      <section>
+      <section id="s08">
         <span class="secnum">08 / What the major design systems say</span>
         <h2>A capped single column is the convention</h2>
         <p class="prose">
@@ -491,7 +506,7 @@
           <div class="syscard">
             <div class="src">IBM · Carbon — closest to our world</div>
             <h3>Consistent spacing and field sizing</h3>
-            <p>Carbon, the system for data-heavy enterprise products, specifies form field widths and a consistent vertical spacing scale, and lays dense records out in structured multi-column grids rather than one tall column. It is the nearest match to VC's density — the authority for the dense-record regime — and it confirms the rhythm in §05.</p>
+            <p>Carbon, the system for data-heavy enterprise products, specifies form field widths and a consistent vertical spacing scale, and lays dense records out in structured multi-column grids rather than one tall column. It is the nearest match to VC's density — the authority for the dense-record regime — and it confirms the rhythm in <a href="#s05">§05</a>.</p>
             <span class="verdict tag v"><span class="dot"></span>fixed widths, spacing scale</span>
           </div>
 
@@ -505,7 +520,7 @@
       </section>
 
       <!-- 09 RECO -->
-      <section>
+      <section id="s09">
         <span class="secnum">09 / Recommendation</span>
         <h2>Size the layout to the task; size every field to its content</h2>
         <p class="prose">
@@ -517,8 +532,8 @@
             <li><strong>Never let the form fill the artboard.</strong> The canvas is workspace; the form is sized to its task. This is the one non-negotiable.</li>
             <li><strong>Sequential flows → a single column capped at 640px (40rem)</strong>, centred in the content area — beside the sidebar, below or beside a stepper. Never jammed against the chrome.</li>
             <li><strong>Dense records → a structured, grouped grid</strong> sized to its content groups, the Carbon-aligned case. Columns must carry structure, not fill space; never split one logical field, never pair unrelated fields to use up width.</li>
-            <li><strong>Size every input to its content</strong> in either layout, using the §02 table as the ceiling. A code, day, date or amount is never full width.</li>
-            <li><strong>Labels above inputs</strong>, gathered into named groups, with the spacing rhythm of §05 (≈6 / 22 / 44px).</li>
+            <li><strong>Size every input to its content</strong> in either layout, using the <a href="#s02">§02</a> table as the ceiling. A code, day, date or amount is never full width.</li>
+            <li><strong>Labels above inputs</strong>, gathered into named groups, with the spacing rhythm of <a href="#s05">§05</a> (≈6 / 22 / 44px).</li>
             <li><strong>Stack choice controls.</strong> Radios and short checkbox sets one per line; past ~7 checkboxes, split into two columns or group under sub-headings.</li>
             <li><strong>In long flows, one concept per step</strong>, content-sized fields inside each step; let the stepper carry progress.</li>
           </ul>
@@ -526,7 +541,7 @@
       </section>
 
       <!-- REFS -->
-      <section>
+      <section id="s10">
         <span class="secnum">10 / References</span>
         <h2>Sources</h2>
         <ul class="clean refs prose">
@@ -537,6 +552,33 @@
           <li><a href="https://carbondesignsystem.com/components/form/usage/">IBM Carbon — Form usage</a> (field width and vertical spacing guidance for dense enterprise forms).</li>
         </ul>
       </section>
+      <nav class="related" aria-label="Related records">
+        <div class="relnav">
+          <a class="relprev" href="modal-vs-page.html">
+            <span class="k">Previous</span>
+            <span class="rt">Modal, full page, or side panel</span>
+          </a>
+          <a class="relnext" href="form-labelling.html">
+            <span class="k">Next</span>
+            <span class="rt">Descriptions and placeholders</span>
+          </a>
+        </div>
+        <div class="relsee">
+          <span class="k">See also</span>
+          <a class="relrow" href="form-labelling.html">
+            <span class="rt">Descriptions and placeholders</span>
+            <span class="rd">Descriptions survive typing; width cannot rescue guidance placed inside the field.</span>
+          </a>
+          <a class="relrow" href="breakpoints.html">
+            <span class="rt">Breakpoints</span>
+            <span class="rd">Form columns cap to reading measure; breakpoint tiers explain when that cap holds.</span>
+          </a>
+          <a class="relrow" href="modal-vs-page.html">
+            <span class="rt">Modal, full page, or side panel</span>
+            <span class="rd">Container choice precedes layout; long work belongs on a page, not an interruption.</span>
+          </a>
+        </div>
+      </nav>
 
     </div>
   </article>

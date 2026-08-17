@@ -47,10 +47,22 @@
         Default to a <strong>vertical stepper in a left rail</strong>, content in the canvas beside it: it scales past five steps and shows every step's name, description and status at once. Reserve a <strong>horizontal stepper</strong> for a short, strictly linear wizard — three to five terse steps, each its own page.
       </p>
     </div>
+    <nav class="oncontents" aria-label="Sections of this record">
+      <span class="k">On this page</span>
+      <ol>
+        <li><a href="#s01">Decide on the flow, not the page</a></li>
+        <li><a href="#s02">What each one is good at, in our UI</a></li>
+        <li><a href="#s03">Four forces, all pointing the same way for us</a></li>
+        <li><a href="#s04">Where to draw the line in review</a></li>
+        <li><a href="#s05">The enterprise convention, not a house opinion</a></li>
+        <li><a href="#s06">Make the vertical rail the default</a></li>
+        <li><a href="#s07">Sources</a></li>
+      </ol>
+    </nav>
   </header>
 
   <!-- 01 QUICK REFERENCE -->
-  <section>
+  <section id="s01">
     <span class="secnum">01 / Quick reference</span>
     <h2>Decide on the flow, not the page</h2>
     <p class="prose">
@@ -101,7 +113,7 @@
   </section>
 
   <!-- 02 LIVE -->
-  <section>
+  <section id="s02">
     <span class="secnum">02 / The two in practice</span>
     <h2>What each one is good at, in our UI</h2>
     <p class="prose">
@@ -196,7 +208,7 @@
   </section>
 
   <!-- 03 WHY -->
-  <section>
+  <section id="s03">
     <span class="secnum">03 / The reasoning</span>
     <h2>Four forces, all pointing the same way for us</h2>
     <p class="prose">
@@ -228,7 +240,7 @@
   </section>
 
   <!-- 04 EDGE CASES -->
-  <section>
+  <section id="s04">
     <span class="secnum">04 / Edge cases and anti-patterns</span>
     <h2>Where to draw the line in review</h2>
 
@@ -260,7 +272,7 @@
   </section>
 
   <!-- 05 PRECEDENT -->
-  <section>
+  <section id="s05">
     <span class="secnum">05 / What the major design systems say</span>
     <h2>The enterprise convention, not a house opinion</h2>
     <p class="prose">
@@ -313,7 +325,7 @@
   </section>
 
   <!-- 06 RECO -->
-  <section>
+  <section id="s06">
     <span class="secnum">06 / Recommendation for VC</span>
     <h2>Make the vertical rail the default</h2>
     <div class="reco">
@@ -329,7 +341,7 @@
   </section>
 
   <!-- REFS -->
-  <section>
+  <section id="s07">
     <span class="secnum">07 / References</span>
     <h2>Sources</h2>
     <ul class="clean refs prose">
@@ -340,6 +352,29 @@
       <li><a href="https://mui.com/material-ui/react-stepper/">MUI — Stepper</a> (horizontal when one step's contents depend on an earlier step).</li>
     </ul>
   </section>
+  <nav class="related" aria-label="Related records">
+    <div class="relnav">
+      <a class="relnext" href="modal-vs-page.html">
+        <span class="k">Next</span>
+        <span class="rt">Modal, full page, or side panel</span>
+      </a>
+    </div>
+    <div class="relsee">
+      <span class="k">See also</span>
+      <a class="relrow" href="modal-vs-page.html">
+        <span class="rt">Modal, full page, or side panel</span>
+        <span class="rd">Short linear wizards belong in modals; this record sets the container threshold.</span>
+      </a>
+      <a class="relrow" href="form-layout.html">
+        <span class="rt">Form layout on wide artboards</span>
+        <span class="rd">A vertical rail needs a canvas beside it; this record sizes that working form.</span>
+      </a>
+      <a class="relrow" href="breakpoints.html">
+        <span class="rt">Breakpoints</span>
+        <span class="rd">Desktop tiers must preserve the rail; this record fixes the grid that carries it.</span>
+      </a>
+    </div>
+  </nav>
 
     </div>
   </article>

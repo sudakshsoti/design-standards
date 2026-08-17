@@ -100,10 +100,22 @@ html.sb-ready .sb-band.is-open .sb-tip{ opacity:1; visibility:visible; }
           </ul>
           <p>The hover and focus target is the <strong>column, not the segment</strong>. Give every column a hit band of at least <strong>24px</strong>, whatever the paint does.</p>
         </div>
+        <nav class="oncontents" aria-label="Sections of this record">
+          <span class="k">On this page</span>
+          <ol>
+            <li><a href="#s01">Which tier holds the value</a></li>
+            <li><a href="#s02">Enough to enrich, not to explain</a></li>
+            <li><a href="#s03">Anchored to the column it describes</a></li>
+            <li><a href="#s04">Target the column, not the paint</a></li>
+            <li><a href="#s05">What the stack shows, and what it withholds</a></li>
+            <li><a href="#s06">Nonessential, dismissible, never interactive</a></li>
+            <li><a href="#s07">Sources</a></li>
+          </ol>
+        </nav>
       </header>
 
       <!-- 01 QUICK REFERENCE -->
-      <section>
+      <section id="s01">
         <span class="secnum">01 / Quick reference</span>
         <h2>Which tier holds the value</h2>
         <p class="prose">
@@ -127,7 +139,7 @@ html.sb-ready .sb-band.is-open .sb-tip{ opacity:1; visibility:visible; }
             <tr>
               <th scope="row">On demand (tooltip)</th>
               <td data-l="What it holds">Exact figures, denominators, definitions. Enrichment, never the only copy of a needed fact.</td>
-              <td data-l="Where it lives">The hover/focus card, anchored to the column it describes (§03).</td>
+              <td data-l="Where it lives">The hover/focus card, anchored to the column it describes (<a href="#s03">§03</a>).</td>
             </tr>
             <tr>
               <th scope="row">On navigate</th>
@@ -139,7 +151,7 @@ html.sb-ready .sb-band.is-open .sb-tip{ opacity:1; visibility:visible; }
       </section>
 
       <!-- 02 WHAT THE TOOLTIP CARRIES -->
-      <section>
+      <section id="s02">
         <span class="secnum">02 / What the tooltip carries</span>
         <h2>Enough to enrich, not to explain</h2>
         <p class="prose">
@@ -185,13 +197,13 @@ html.sb-ready .sb-band.is-open .sb-tip{ opacity:1; visibility:visible; }
                 </div>
               </div>
             </div>
-            <p class="note"><strong>One header, one total, four segment rows — §03's actual payload.</strong> Every value here is worth the glance it costs; nothing in it is padding.</p>
+            <p class="note"><strong>One header, one total, four segment rows — <a href="#s03">§03</a>'s actual payload.</strong> Every value here is worth the glance it costs; nothing in it is padding.</p>
           </div>
         </div>
       </section>
 
       <!-- 03 WHERE THE TOOLTIP SITS -->
-      <section>
+      <section id="s03">
         <span class="secnum">03 / Where the tooltip sits</span>
         <h2>Anchored to the column it describes</h2>
 
@@ -302,7 +314,7 @@ html.sb-ready .sb-band.is-open .sb-tip{ opacity:1; visibility:visible; }
       </section>
 
       <!-- 04 WHEN THE SEGMENT IS TOO THIN -->
-      <section>
+      <section id="s04">
         <span class="secnum">04 / When the segment is too thin</span>
         <h2>Target the column, not the paint</h2>
         <p class="prose">
@@ -379,7 +391,7 @@ html.sb-ready .sb-band.is-open .sb-tip{ opacity:1; visibility:visible; }
             </tr>
             <tr>
               <th scope="row">More than 5 segments</th>
-              <td data-l="What it allows">Cap the stack; roll the tail into a labelled "Other" — the <a href="bar-and-column.html">bar-and-column.html §02</a> move.</td>
+              <td data-l="What it allows">Cap the stack; roll the tail into a labelled "Other" — the <a href="bar-and-column.html#s02">bar-and-column.html §02</a> move.</td>
               <td data-l="When it still won't fit">Every segment's identity is still required, or a middle segment must be compared across columns (next row).</td>
             </tr>
             <tr>
@@ -392,7 +404,7 @@ html.sb-ready .sb-band.is-open .sb-tip{ opacity:1; visibility:visible; }
       </section>
 
       <!-- 05 THE REASONING -->
-      <section>
+      <section id="s05">
         <span class="secnum">05 / The reasoning</span>
         <h2>What the stack shows, and what it withholds</h2>
         <p class="prose">
@@ -424,7 +436,7 @@ html.sb-ready .sb-band.is-open .sb-tip{ opacity:1; visibility:visible; }
       </section>
 
       <!-- 06 PRECEDENT -->
-      <section>
+      <section id="s06">
         <span class="secnum">06 / What the field says</span>
         <h2>Nonessential, dismissible, never interactive</h2>
         <p class="prose">
@@ -463,7 +475,7 @@ html.sb-ready .sb-band.is-open .sb-tip{ opacity:1; visibility:visible; }
       </section>
 
       <!-- 07 REFERENCES -->
-      <section>
+      <section id="s07">
         <span class="secnum">07 / References</span>
         <h2>Sources</h2>
         <ul class="clean refs prose">
@@ -472,6 +484,33 @@ html.sb-ready .sb-band.is-open .sb-tip{ opacity:1; visibility:visible; }
           <li><a href="https://carbondesignsystem.com/components/tooltip/usage/">IBM Carbon — Tooltip usage</a> ("contextual, helpful, and nonessential"; never pertinent task information or interactive elements).</li>
         </ul>
       </section>
+      <nav class="related" aria-label="Related records">
+        <div class="relnav">
+          <a class="relprev" href="bar-sizing.html">
+            <span class="k">Previous</span>
+            <span class="rt">Bar thickness and spacing</span>
+          </a>
+          <a class="relnext" href="line-charts.html">
+            <span class="k">Next</span>
+            <span class="rt">Line charts and trends</span>
+          </a>
+        </div>
+        <div class="relsee">
+          <span class="k">See also</span>
+          <a class="relrow" href="bar-and-column.html">
+            <span class="rt">Bars and columns</span>
+            <span class="rd">Whole-column targeting resolves thin segments; bar form controls the comparison.</span>
+          </a>
+          <a class="relrow" href="tooltip-usage.html">
+            <span class="rt">Tooltip usage</span>
+            <span class="rd">The tooltip carries enrichment, while required facts remain visible on the chart.</span>
+          </a>
+          <a class="relrow" href="legends.html">
+            <span class="rt">Chart legends</span>
+            <span class="rd">A legend names colours; the tooltip supplies exact segment values.</span>
+          </a>
+        </div>
+      </nav>
 
     </div>
   </article>

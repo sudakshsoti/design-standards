@@ -23,11 +23,7 @@ All links are relative (`../css/base.css`, never `/css/base.css`) so the site wo
 
 ## How to add a page
 
-1. Duplicate `records/_template.html` and name it after the record slug, e.g. `records/form-layout.html`.
-2. Fill in every `<!-- TODO -->`: title, category eyebrow, status badge, the numbered sections, demos.
-3. Add one `<a class="regrow">` entry for it in `index.html`, inside the right `.reggroup` (or `.regsub`), and bump that category's count in the `.homenav` rail.
-
-That is the entire workflow. No build step, no registration, nothing to generate.
+See `AGENTS.md` → "How a record is built" for the full workflow.
 
 ### Where a record files
 
@@ -61,11 +57,15 @@ Each record carries a status badge in its masthead (`.rechead`) and on its index
 1. Push the repo to GitHub.
 2. In the repo: **Settings → Pages → Build and deployment**, set Source to **Deploy from a branch**, branch `main`, folder `/ (root)`.
 3. Save. The site appears at `https://<org>.github.io/<repo-name>/`. No Actions workflow is needed.
+4. Index-building search tools (e.g. Pagefind) were considered and rejected: their
+   index loads via `fetch()`/WebAssembly, which breaks `file://`, and it must be
+   regenerated after every edit or it goes stale. `keywords.html` is the hand-maintained
+   alternative.
 
 ## Conventions
 
 - Pattern-level content only: layout rules, labelling rules, generic demos. No product-specific screens or data.
-- No JavaScript. The only permitted exception is a small inline script scoped to a single demo that genuinely needs it to demonstrate an interaction (none so far).
+- No JavaScript. The only permitted exception is a small inline script scoped to a single demo that genuinely needs it to demonstrate an interaction. The sanctioned exception is `records/stacked-bars.html`.
 - No inline `<style>` blocks; pages link `css/tokens.css` and `css/base.css`. A single demo may carry scoped styles if it genuinely needs them.
 - Good/bad comparisons use the `.compare` block (`.stage.avoid` / `.stage.use`): side by side on desktop, stacked on narrow viewports.
 - Write to be scanned: lead every block with its claim, one idea per block, `ul.clean` for parallel sets. The full copy standard is CLAUDE.md → "Write to be scanned".
