@@ -50,10 +50,22 @@
             <li><strong>Self-evident field</strong> → neither.</li>
           </ul>
         </div>
+        <nav class="oncontents" aria-label="Sections of this record">
+          <span class="k">On this page</span>
+          <ol>
+            <li><a href="#s01">One axis decides it: does the text survive typing?</a></li>
+            <li><a href="#s02">Put the guidance where it survives</a></li>
+            <li><a href="#s03">Four forces, all pointing the same way</a></li>
+            <li><a href="#s04">The default for both is nothing</a></li>
+            <li><a href="#s05">Persistent helper text, placeholder demoted</a></li>
+            <li><a href="#s06">Guidance in the description; the placeholder is only an example</a></li>
+            <li><a href="#s07">Sources</a></li>
+          </ol>
+        </nav>
       </header>
 
       <!-- 01 QUICK REFERENCE -->
-      <section>
+      <section id="s01">
         <span class="secnum">01 / Quick reference</span>
         <h2>One axis decides it: does the text survive typing?</h2>
         <p class="prose">
@@ -99,7 +111,7 @@
       </section>
 
       <!-- 02 IN PRACTICE -->
-      <section>
+      <section id="s02">
         <span class="secnum">02 / The pattern in practice</span>
         <h2>Put the guidance where it survives</h2>
         <p class="prose">
@@ -191,7 +203,7 @@
       </section>
 
       <!-- 03 REASONING -->
-      <section>
+      <section id="s03">
         <span class="secnum">03 / The reasoning</span>
         <h2>Four forces, all pointing the same way</h2>
         <p class="prose">
@@ -223,7 +235,7 @@
       </section>
 
       <!-- 04 WHEN TO LEAVE THEM OUT -->
-      <section>
+      <section id="s04">
         <span class="secnum">04 / When to leave them out</span>
         <h2>The default for both is nothing</h2>
         <p class="prose">
@@ -250,7 +262,7 @@
       </section>
 
       <!-- 05 PRECEDENT -->
-      <section>
+      <section id="s05">
         <span class="secnum">05 / What the standards say</span>
         <h2>Persistent helper text, placeholder demoted</h2>
         <p class="prose">
@@ -303,7 +315,7 @@
       </section>
 
       <!-- 06 RECO -->
-      <section>
+      <section id="s06">
         <span class="secnum">06 / Recommendation for VC</span>
         <h2>Guidance in the description; the placeholder is only an example</h2>
         <div class="reco">
@@ -319,7 +331,7 @@
       </section>
 
       <!-- REFS -->
-      <section>
+      <section id="s07">
         <span class="secnum">07 / References</span>
         <h2>Sources</h2>
         <ul class="clean refs prose">
@@ -330,6 +342,33 @@
           <li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-describedby">MDN — aria-describedby</a> and <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#placeholder">the placeholder attribute</a> (describe the field via aria-describedby; placeholder is not a dependable accessible name).</li>
         </ul>
       </section>
+      <nav class="related" aria-label="Related records">
+        <div class="relnav">
+          <a class="relprev" href="form-layout.html">
+            <span class="k">Previous</span>
+            <span class="rt">Form layout on wide artboards</span>
+          </a>
+          <a class="relnext" href="tooltip-usage.html">
+            <span class="k">Next</span>
+            <span class="rt">Tooltip usage</span>
+          </a>
+        </div>
+        <div class="relsee">
+          <span class="k">See also</span>
+          <a class="relrow" href="form-layout.html">
+            <span class="rt">Form layout on wide artboards</span>
+            <span class="rd">Size the form to its task before deciding where persistent guidance belongs.</span>
+          </a>
+          <a class="relrow" href="tooltip-usage.html">
+            <span class="rt">Tooltip usage</span>
+            <span class="rd">Keep essential field guidance on the page; tooltips carry only non-essential labels.</span>
+          </a>
+          <a class="relrow" href="numbers-and-states.html">
+            <span class="rt">Numbers, units, and data states</span>
+            <span class="rd">Label fields persistently, then distinguish no data from zero in the values they show.</span>
+          </a>
+        </div>
+      </nav>
 
     </div>
   </article>

@@ -1,13 +1,8 @@
 <!DOCTYPE html>
 <!-- ============================================================
-     HOW TO ADD A DECISION RECORD
-     1. Duplicate this file. Name it after the record slug,
-        e.g. records/form-layout.html.
-     2. Fill in every TODO below.
-     3. Add one <a class="regrow"> entry for it in ../index.html,
-        inside the right .reggroup (or .regsub), and bump that
-        category's count in the .homenav rail.
-     That is the only wiring. No build step.
+     HOW TO ADD A DECISION RECORD — see AGENTS.md "How a record is built"
+     for the full workflow (sections, ids, On this page, Related, index,
+     keyword index). Duplicate this file and fill every TODO below.
 ============================================================ -->
 <html lang="en-US">
 <head>
@@ -67,10 +62,20 @@
           <!-- TODO: the house rule, stated plainly. Mark "(provisional)" in the <span class="k"> while Draft. State the directive and any thresholds (numerals) — cut the justification, which belongs in the sections below. For a set of choices, use a ul.clean list, not a dense paragraph. -->
           <p>Use <strong>X</strong> when… Use <strong>Y</strong> when… The deciding question is…</p>
         </div>
+        <!-- TODO: keep these labels in sync with each section's <h2> text verbatim (no <br>) -->
+        <nav class="oncontents" aria-label="Sections of this record">
+          <span class="k">On this page</span>
+          <ol>
+            <li><a href="#s01">Decide by these dimensions</a></li>
+            <li><a href="#s02">Good and bad, side by side</a></li>
+            <li><a href="#s03">Why the rule points this way</a></li>
+            <li><a href="#s04">To be completed</a></li>
+          </ol>
+        </nav>
       </header>
 
       <!-- Sections are numbered with the .secnum pattern: "01 / Name", "02 / Name", … -->
-      <section>
+      <section id="s01">
         <span class="secnum">01 / Quick reference</span>
         <!-- TODO: section heading -->
         <h2>Decide by these dimensions</h2>
@@ -81,7 +86,7 @@
         <!-- TODO: optional comparison table — copy a .tbl from an existing record -->
       </section>
 
-      <section>
+      <section id="s02">
         <span class="secnum">02 / The pattern in practice</span>
         <!-- TODO: section heading -->
         <h2>Good and bad, side by side</h2>
@@ -109,7 +114,7 @@
         </div>
       </section>
 
-      <section>
+      <section id="s03">
         <span class="secnum">03 / The reasoning</span>
         <!-- TODO: section heading -->
         <h2>Why the rule points this way</h2>
@@ -119,7 +124,7 @@
              ul.clean list — not a paragraph. --></p>
       </section>
 
-      <section>
+      <section id="s04">
         <span class="secnum">04 / Precedent and recommendation</span>
         <!-- TODO: what the major design systems say (copy .systems/.syscard from the
              stepper record), then the house recommendation (.reco). Until that pass is
@@ -129,7 +134,7 @@
       </section>
 
       <!-- TODO: references — keep only if the precedent section cites sources
-      <section>
+      <section id="s05">
         <span class="secnum">05 / References</span>
         <h2>Sources</h2>
         <ul class="clean refs prose">
@@ -137,6 +142,45 @@
         </ul>
       </section>
       -->
+
+      <!-- TODO: related block. Prev/next follow the shelf register order in
+           index.html; the record before this one in its shelf gets .relnext,
+           the one after gets .relprev. If this record is first/last in its
+           shelf, omit the missing relprev/relnext element entirely. See also
+           is 2-3 directed links (never reciprocal) with a ≤14-word reason
+           each, in AGENTS.md's site voice. -->
+      <nav class="related" aria-label="Related records">
+        <div class="relnav">
+          <!-- TODO: previous record slug/title -->
+          <a class="relprev" href="previous-record-slug.html">
+            <span class="k">Previous</span>
+            <span class="rt">Previous record title</span>
+          </a>
+          <!-- TODO: next record slug/title -->
+          <a class="relnext" href="next-record-slug.html">
+            <span class="k">Next</span>
+            <span class="rt">Next record title</span>
+          </a>
+        </div>
+        <div class="relsee">
+          <span class="k">See also</span>
+          <!-- TODO: see-also record 1 slug/title/reason -->
+          <a class="relrow" href="see-also-record-1.html">
+            <span class="rt">See-also record 1 title</span>
+            <span class="rd">Why you'd jump there, in ≤14 words.</span>
+          </a>
+          <!-- TODO: see-also record 2 slug/title/reason -->
+          <a class="relrow" href="see-also-record-2.html">
+            <span class="rt">See-also record 2 title</span>
+            <span class="rd">Why you'd jump there, in ≤14 words.</span>
+          </a>
+          <!-- TODO: see-also record 3 slug/title/reason -->
+          <a class="relrow" href="see-also-record-3.html">
+            <span class="rt">See-also record 3 title</span>
+            <span class="rd">Why you'd jump there, in ≤14 words.</span>
+          </a>
+        </div>
+      </nav>
 
     </div>
   </article>

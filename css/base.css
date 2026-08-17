@@ -272,9 +272,10 @@ footer .meta{ font-family:"IBM Plex Mono",monospace; font-size:0.72rem; letter-s
 
 /* Right column — the register */
 /* .reggroup is a <section>; drop the global section padding + top border
-   (base.css §section) — the register supplies its own rhythm and rules. */
-.reggroup{ padding:0; border-top:none; margin-top:var(--space-8); }
-.reggroup:first-child{ margin-top:0; }
+   (base.css §section) — the register supplies its own rhythm and rules.
+   .kwgroup (keyword index) shares the same reset. */
+.reggroup, .kwgroup{ padding:0; border-top:none; margin-top:var(--space-8); }
+.reggroup:first-child, .kwgroup:first-of-type{ margin-top:0; } /* :first-of-type on .kwgroup because it follows a <header>, not just other groups */
 .reghead{ font-family:"IBM Plex Mono",monospace; font-size:0.72rem; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-2); margin:0 0 var(--space-1); padding-bottom:var(--space-4); border-bottom:1px solid var(--rule-strong); }
 .reggroup-parent > .reghead{ color:var(--ink); }
 /* Sub-group gap is deliberately less than --space-8 (top-level group gap) so a
@@ -614,3 +615,47 @@ textarea.inp{ height:auto; min-height:4.6rem; padding:0.5rem 0.65rem; resize:ver
 /* Toggletip — the light, click-triggered surface that may carry an action. */
 .tt-pop{ max-width:280px; padding:0.7rem 0.85rem; background:var(--paper); border:1px solid var(--rule-strong); border-radius:var(--radius-3); box-shadow:var(--shadow-pop); font-size:0.82rem; line-height:1.5; color:var(--ink-2); }
 .tt-pop .act{ display:inline-block; margin-top:0.5rem; color:var(--cool); font-weight:500; }
+
+/* On this page — the record's own section list, static and in the masthead. */
+.oncontents{ margin-top:var(--space-7); padding-top:var(--space-6); border-top:1px solid var(--rule); }
+.oncontents > ol{ margin:0; padding:0; list-style:none; counter-reset:onc; columns:2; column-gap:var(--space-8); }
+.oncontents > ol > li{ counter-increment:onc; break-inside:avoid; margin-bottom:var(--space-2); }
+.oncontents > ol > li > a{ display:flex; gap:var(--space-4); text-decoration:none; border:none; font-size:0.94rem; color:var(--ink-2); }
+.oncontents > ol > li > a::before{ content:counter(onc, decimal-leading-zero); flex:none; font-family:"IBM Plex Mono",monospace; font-size:0.72rem; color:var(--ink-3); font-variant-numeric:tabular-nums; }
+.oncontents > ol > li > a:hover{ color:var(--ink); border:none; text-decoration:underline; text-underline-offset:2px; }
+@media (max-width:640px){ .oncontents > ol{ columns:1; } }
+
+/* Related records — closes every record. */
+.related{ margin-top:var(--space-9); padding-top:var(--space-6); border-top:1px solid var(--rule-strong); }
+/* Shared mono eyebrow label for the two blocks above. */
+.oncontents > .k, .related .k{ display:block; font-family:"IBM Plex Mono",monospace; font-size:0.7rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-3); }
+.oncontents > .k{ margin-bottom:var(--space-4); }
+.related .k{ margin-bottom:var(--space-2); }
+.relnav{ display:grid; grid-template-columns:1fr 1fr; gap:var(--space-5); }
+.relnav > a{ display:block; padding:var(--space-4) var(--space-5); border:1px solid var(--rule); border-radius:var(--radius-2); text-decoration:none; transition:background 150ms, border-color 150ms; }
+.relnav > a:hover{ background:var(--paper-2); border-color:var(--rule-strong); }
+.relnav > .relnext{ grid-column:2; text-align:right; }
+.relsee{ margin-top:var(--space-7); }
+.relrow{ display:block; padding:var(--space-4); margin:0 calc(-1*var(--space-4)); border-top:1px solid var(--rule); text-decoration:none; border-radius:var(--radius-2); transition:background 150ms, border-color 150ms; }
+.relrow:hover{ background:var(--paper-3); border-color:var(--rule-strong); }
+.relsee > .k + .relrow{ border-top:none; }
+/* Typography shared with the register rows, without the register's grid placement. */
+:is(.relnav > a, .relrow) .rt{ display:block; font-family:"Source Serif 4",serif; font-weight:600; font-variation-settings:"opsz" 16; font-size:1.05rem; line-height:1.25; color:var(--ink); }
+.relrow .rd{ display:block; margin-top:var(--space-1); font-size:0.88rem; color:var(--ink-2); line-height:1.45; }
+@media (max-width:520px){
+  .relnav{ grid-template-columns:1fr; }
+  .relnav > .relnext{ grid-column:1; text-align:left; }
+}
+
+/* Keyword index — term on the left, the records that govern it on the right.
+   The section-reset for .kwgroup lives with .reggroup above. */
+.kwrow{ display:grid; grid-template-columns:14rem minmax(0,1fr); column-gap:var(--space-5); row-gap:var(--space-1); align-items:baseline; padding:var(--space-3) var(--space-4); margin:0 calc(-1*var(--space-4)); border-top:1px solid var(--rule); }
+.reghead + .kwrow{ border-top:none; }
+.kwrow .kt{ font-family:"IBM Plex Mono",monospace; font-size:0.82rem; color:var(--ink); }
+.kwrow .kl{ display:flex; flex-direction:column; gap:var(--space-1); font-size:0.9rem; }
+.kwrow .kl .kn{ color:var(--ink-3); font-size:0.82rem; }
+@media (max-width:640px){ .kwrow{ grid-template-columns:1fr; row-gap:var(--space-2); } }
+
+/* Search hint — used on index.html and keywords.html to say out loud that the register is Find-able. */
+.findhint{ margin-top:var(--space-6); font-size:0.95rem; color:var(--ink-2); }
+.findhint kbd{ font-family:"IBM Plex Mono",monospace; font-size:0.82em; padding:0.1em 0.35em; background:var(--paper-3); border:1px solid var(--rule); border-radius:var(--radius-1); }
